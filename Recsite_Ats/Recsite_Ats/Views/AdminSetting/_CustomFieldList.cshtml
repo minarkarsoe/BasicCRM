@@ -1,0 +1,45 @@
+﻿@model List<Recsite_Ats.Domain.ViewModels.CustomFieldsViewModel>
+@{
+}
+
+<link rel="stylesheet" href="~/css/custom/common.css" />
+@if (Model.Any() || Model.Count != 0)
+{
+    <div class="cusTmfldParaOpen show">
+        <div class="customField reorderDrTable table-responsive">
+            <table class="table trborder">
+                <tbody>
+                    <tr>
+                        <th>Field Name</th>
+                        <th>Field Type</th>
+                        <th>Value</th>
+                        <th>Actions</th>
+                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr data-custom-field-id="@item.CustomFieldId">
+                            <td class="field-name">@item.FieldName</td>
+                            <td><em>@item.FieldTypeName</em></td>
+                            <td class="view-value">@item.ViewValue</td>
+                            <td>
+                                <ul class="edtdll">
+                                    <li>
+                                        <a class="btns edit-btn"><img src="~/images/edit-2.svg" alt="Edit"></a>
+                                        <a href="@Url.Action("EditCustomField" , "AdminSetting")" class="btns ok-btn" style="display: none;">Ok</a>
+                                        <a href="#" class="btns cancel-btn" style="display: none;">Cancel</a>
+                                    </li>
+                                    <li>
+                                        @Html.AntiForgeryToken()
+                                        <a href="@Url.Action("DeleteCustomFields", "AdminSetting", new { fieldId = item.CustomFieldId})" class="btns delete-custom-field"><img src="~/images/eraser.svg" alt="Delete"></a>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+}
+<script src="~/js/custom/edit-custom-field.js"></script>
+

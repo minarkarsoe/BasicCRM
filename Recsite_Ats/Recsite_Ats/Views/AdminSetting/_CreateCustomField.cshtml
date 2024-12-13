@@ -1,0 +1,44 @@
+﻿@model Recsite_Ats.Domain.ViewModels.CreateCustomFieldViewModel
+
+<div class="modalBody">
+    <form asp-action="CreateCustomField" asp-controller="AdminSetting" method="post">
+        @Html.AntiForgeryToken()
+        <div class="row">
+            <!-- Field Name -->
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="FieldName" class="form-label"></label>
+                    <input asp-for="FieldName" class="form-control" placeholder="City">
+                    <span asp-validation-for="FieldName" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!-- Field Type -->
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="FieldTypeId" class="form-label"></label>
+                    <select asp-for="FieldTypeId" class="form-select" asp-items="@(new SelectList(Model.FieldTypes, "FieldTypeId", "FieldTypeName"))">
+                        <option value="">Select Type</option>
+                    </select>
+                    <span asp-validation-for="FieldTypeId" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!-- View Value -->
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="ViewValue" class="form-label"></label>
+                    <input asp-for="ViewValue" class="form-control" placeholder="city1, city2, city3">
+                    <span asp-validation-for="ViewValue" class="text-danger"></span>
+                </div>
+            </div>
+            <input asp-for="TableName" value="@Model.TableName" type="hidden" />
+            <!-- Submit Button -->
+            <div class="col-md-12">
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

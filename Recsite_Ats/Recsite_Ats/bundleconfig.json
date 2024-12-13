@@ -1,0 +1,27 @@
+[
+  {
+    "outputFileName": "wwwroot/js/site.min.js",
+    "inputFiles": [
+      "wwwroot/js/site.js",
+      "wwwroot/js/sortable.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/custom/create-new-section.min.js",
+    "inputFiles": [
+      "wwwroot/js/custom/create-new-section.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/custom/edit-section-name.min.js",
+    "inputFiles": [
+      "wwwroot/js/custom/edit-section-name.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/doc.min.css",
+    "inputFiles": [
+      "wwwroot/css/doc.css"
+    ]
+  }
+]

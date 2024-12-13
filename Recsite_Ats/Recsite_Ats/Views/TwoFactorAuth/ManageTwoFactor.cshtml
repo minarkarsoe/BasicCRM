@@ -1,0 +1,22 @@
+﻿@model Recsite_Ats.Domain.ViewModels.ManageTwoFactorViewModel
+
+<h4>Two-Factor Authentication</h4>
+<p>
+    Two-factor authentication (2FA) adds an extra layer of security to your account by requiring more than just a password to sign in.
+</p>
+
+@if (Model.Is2faEnabled)
+{
+    <p>
+        <strong>Two-factor authentication is enabled.</strong>
+        <a asp-action="DisableAuthenticator" class="btn btn-danger">Disable 2FA</a>
+    </p>
+    <p>Recovery codes left: @Model.RecoveryCodesLeft</p>
+}
+else
+{
+    <p>
+        <strong>Two-factor authentication is not enabled.</strong>
+        <a asp-action="EnableAuthenticator" class="btn btn-primary">Enable 2FA</a>
+    </p>
+}

@@ -1,0 +1,57 @@
+﻿@model Recsite_Ats.Domain.DataTransferObject.SectionLayoutDTO
+
+@{
+    ViewData["Title"] = "Company Edit";
+    var companyId = ViewData["CompanyId"];
+}
+
+<div class="modal-header">
+    <h5 class="modal-title">Company Detials</h5>
+</div>
+<div class="modal-body">
+    @for (int i = 0; i < Model.Sections.Count; i++)
+    {
+        <h6 class="section-header">@Model.Sections[i].SectionName</h6>
+        @for (int j = 0; j < Model.CustomFields.Count; j++)
+        {
+            if (Model.CustomFields[j].SectionLayoutId == Model.Sections[i].SectionLayoutId && Model.CustomFields[j].IsVisible)
+            {
+                <div class="form-group">
+                    <label>@Model.CustomFields[j].FieldName:</label>
+                    @if(Model.CustomFields[j].CustomFieldTypeName == "Image")
+                    {
+                        <img src="@Model.CustomFields[j].FieldValue" height="80"/> 
+                    }
+                    else
+                    {
+                        <input class="form-control"
+                               name="CustomFields[@j].FieldValue"
+                               value="@Model.CustomFields[j].FieldValue"
+                               placeholder="Enter @Model.CustomFields[j].FieldName" disabled />
+                    }
+                </div>
+            }
+        }
+        <hr />
+    }
+</div>
+<div class="modal-footer">
+   
+    <form id="deleteForm" method="delete" asp-controller="Companies" asp-action="post" style="display: none;">
+        @Html.AntiForgeryToken()
+        <input type="hidden" name="_method" value="DELETE" />
+        <input type="hidden" name="id" id="deleteId" value="@companyId" />
+    </form>
+    <a href="#" class="btns buttonpm delete-custom-field" id="deleteLink">Delete</a>
+    <a href="@Url.Action("Edit", "Companies" , new {id = companyId})" class="btns buttonpm delete-custom-field">Edit</a>
+    <a href="@Url.Action("Index", "Companies")" class="btns buttonpm">Cancel</a>
+</div>
+
+<script>
+    document.getElementById('deleteLink').addEventListener('click', function (event) {
+        event.preventDefault(); // Prevent the default link action
+
+        // Submit the form
+        document.getElementById('deleteForm').submit();
+    });
+</script>

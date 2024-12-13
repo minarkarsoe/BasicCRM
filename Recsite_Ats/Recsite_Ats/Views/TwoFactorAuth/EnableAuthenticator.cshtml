@@ -1,0 +1,21 @@
+﻿@model Recsite_Ats.Domain.ViewModels.EnableAuthenticatorViewModel
+<h4>Enable authenticator</h4>
+<p>
+    To enable the authenticator app, you need to scan the QR code below with an authenticator app.
+</p>
+<form asp-action="EnableAuthenticator" method="post">
+    <div>
+        <label asp-for="AuthenticatorUri"></label>
+        <input asp-for="AuthenticatorUri" readonly />
+        <span asp-validation-for="AuthenticatorUri" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <img src="@ViewBag.QrCodeImage" alt="QR Code" width="100px" />
+    </div>
+    <div>
+        <label asp-for="VerificationCode"></label>
+        <input asp-for="VerificationCode" />
+        <span asp-validation-for="VerificationCode" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Verify</button>
+</form>

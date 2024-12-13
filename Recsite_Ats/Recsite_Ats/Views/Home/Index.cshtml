@@ -1,0 +1,1765 @@
+﻿@model Recsite_Ats.Domain.ViewModels.HomeViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="filter_main">
+	<div class="container-fluid">
+		<div class="search_filtrTop">
+			<ul class="search_filtr">
+				<li><span>New Work Item</span></li>
+				<li>
+					<a href="#">Column Options <i class="fa-light fa-angle-down"></i></a>
+					<ul class="setting_dropdown">
+						<li><a href="#"><img src="~/images/clipboard1.svg" alt="" /> work item 1</a></li>
+						<li><a href="#"><img src="~/images/clipboard2.svg" alt="" /> work item 2</a></li>
+						<li><a href="#"><img src="~/images/clipboard3.svg" alt="" /> work item 3</a></li>
+					</ul>
+				</li>
+				<li class="action_filtr">
+					<a href="#">Actions <i class="fa-light fa-angle-down"></i></a>
+					<ul class="setting_dropdown">
+						<li><a href="#"><img src="~/images/setting.svg" alt="" /> Option 1</a></li>
+						<li><a href="#"><img src="~/images/setting.svg" alt="" /> Option 2</a></li>
+						<li><a href="#"><img src="~/images/setting.svg" alt="" /> Option 3</a></li>
+					</ul>
+				</li>
+			</ul>
+			<div class="kry_filter">
+				<form>
+					<span class="keyfiltr_left">
+						<input type="text" placeholder="Filter by keyword" />
+						<input type="submit" value="Search" />
+					</span>
+					<ul class="keyfiltr_rt">
+						<li>
+							<a href="#">Location</a>
+							<ul class="setting_dropdown status">
+								<li><a href="#"><input type="checkbox" value="" /> <span class="green"></span> Location 1</a></li>
+								<li><a href="#"><input type="checkbox" value="" /> <span class="blue"></span> Location 2</a></li>
+								<li><a href="#"><input type="checkbox" value="" /> <span class="red"></span> Location 3</a></li>
+								<li><a href="#"><input type="checkbox" value="" /> <span class="lemon"></span> Location 4</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="#">Status</a>
+							<ul class="setting_dropdown status">
+								<li><a href="#"><input type="checkbox" value="" /> <span class="green"></span> Status 1</a></li>
+								<li><a href="#"><input type="checkbox" value="" /> <span class="blue"></span> Status 2</a></li>
+								<li><a href="#"><input type="checkbox" value="" /> <span class="red"></span> Status 3</a></li>
+								<li><a href="#"><input type="checkbox" value="" /> <span class="lemon"></span> Status 4</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="#">Phone</a>
+							<ul class="setting_dropdown status">
+								<li><a href="#"><input type="checkbox" value="" /> <span class="green"></span> Phone 1</a></li>
+								<li><a href="#"><input type="checkbox" value="" /> <span class="blue"></span> Phone 2</a></li>
+								<li><a href="#"><input type="checkbox" value="" /> <span class="red"></span> Phone 3</a></li>
+								<li><a href="#"><input type="checkbox" value="" /> <span class="lemon"></span> Phone 4</a></li>
+							</ul>
+						</li>
+						<li class="closeBtn"><a href="#"><i class="fa-solid fa-xmark"></i></a></li>
+					</ul>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<section class="dasboard_mid">
+
+	<div class="container-fluid">
+		<div class="dashborad_tablemain">
+			<div class="dashborad_table">
+				<table class="table table-scroll">
+					<thead>
+						<tr>
+							<td class="radio_btn"><img src="~/images/chk_tbl1.svg" alt="" /></td>
+							<td>Company Name <a href="#" class="filtr_arw"><img src="~/images/table_slct.svg" alt="" /></a></td>
+							<td>Tags <a href="#" class="filtr_arw"><img src="~/images/table_slct.svg" alt="" /></a></td>
+							<td>Status <a href="#" class="filtr_arw"><img src="~/images/table_slct.svg" alt="" /></a></td>
+							<td>Job Post <a href="#" class="filtr_arw"><img src="~/images/table_slct.svg" alt="" /></a></td>
+							<td>Jobs <a href="#" class="filtr_arw"><img src="~/images/table_slct.svg" alt="" /></a></td>
+							<td>Created By <a href="#" class="filtr_arw"><img src="~/images/table_slct.svg" alt="" /></a></td>
+							<td>Stage <a href="#" class="filtr_arw"><img src="~/images/table_slct.svg" alt="" /></a></td>
+							<td>Active Application <a href="#" class="filtr_arw"><img src="~/images/table_slct.svg" alt="" /></a></td>
+							<td>Primary Phone <a href="#" class="filtr_arw"><img src="~/images/table_slct.svg" alt="" /></a></td>
+							<td>Activity Updated <a href="#" class="filtr_arw"><img src="~/images/table_slct.svg" alt="" /></a></td>
+						</tr>
+					</thead>
+					<tbody class="body-half-screen">
+						<tr>
+							<td class="radio_btn"><input type="checkbox"></td>
+							<td><a href="#url" data-bs-toggle="modal" data-bs-target="#agenciesModal1"><img src="~/images/eye.svg" alt="" /> Accredited Bond Agencies</a></td>
+							<td><span class="tag_bx">Tag 1</span><span class="tag_bx">Tag 2</span><span class="tag_bx">Tag 3</span></td>
+							<td class="status"><img src="~/images/open.png" alt="" /> Open</td>
+							<td class="posted"><span class="postbox">Posted</span></td>
+							<td class="jobs">8</td>
+							<td>
+								<div class="d-flex">
+									<div class="flex-shrink-0">
+										<img src="~/images/profileimg1.png" alt="" />
+									</div>
+									<div class="flex-grow-1 ms-2">
+										Emily
+									</div>
+								</div>
+							</td>
+							<td class="stage_box">
+								<span class="blue_stage"></span>
+								<span class="blue_stage"></span>
+								<span class="blue_stage"></span>
+								<span class="blue_stage"></span>
+								<span class="blue_stage"></span>
+								<em>100%</em>
+							</td>
+							<td class="active_plan"><span class="">9</span></td>
+							<td>09123456789</td>
+							<td>12/06/2024 4:16:18 PM</td>
+						</tr>
+						<tr>
+							<td class="radio_btn"><input type="checkbox"></td>
+							<td><a href="#"><img src="~/images/eye.svg" alt="" /> Accredited Bond Agencies</a></td>
+							<td><span class="tag_bx">Tag 1</span><span class="tag_bx">Tag 2</span><span class="tag_bx">Tag 3</span></td>
+							<td class="status"><img src="~/images/open.png" alt="" /> Open</td>
+							<td class="posted"><span class="not_postbox">Not Posted</span></td>
+							<td class="jobs">0</td>
+							<td>
+								<div class="d-flex">
+									<div class="flex-shrink-0">
+										<img src="~/images/profileimg2.png" alt="" />
+									</div>
+									<div class="flex-grow-1 ms-2">
+										Alex
+									</div>
+								</div>
+							</td>
+							<td class="stage_box">
+								<span class="blue_stage"></span>
+								<span class="blue_stage"></span>
+								<span class="blue_stage"></span>
+								<span class="pink_stage"></span>
+								<span class="grey_stage"></span>
+								<em>40%</em>
+							</td>
+							<td class="active_plan"><span class="actv">6</span></td>
+							<td>09123456789</td>
+							<td>12/06/2024 4:16:18 PM</td>
+						</tr>
+						<tr>
+							<td class="radio_btn"><input type="checkbox"></td>
+							<td><a href="#"><img src="~/images/eye.svg" alt="" /> Accredited Bond Agencies</a></td>
+							<td><span class="tag_bx">Tag 1</span><span class="tag_bx">Tag 2</span><span class="tag_bx">Tag 3</span></td>
+							<td class="status"><img src="~/images/open.png" alt="" /> Open</td>
+							<td class="posted"><span class="not_postbox">Not Posted</span></td>
+							<td class="jobs">0</td>
+							<td>
+								<div class="d-flex">
+									<div class="flex-shrink-0">
+										<img src="~/images/noimg.png" alt="" />
+									</div>
+									<div class="flex-grow-1 ms-2">
+										Emily
+									</div>
+								</div>
+							</td>
+							<td class="stage_box">
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<em>0%</em>
+							</td>
+							<td class="active_plan"><span>0</span></td>
+							<td>09123456789</td>
+							<td>12/06/2024 4:16:18 PM</td>
+						</tr>
+						<tr>
+							<td class="radio_btn"><input type="checkbox"></td>
+							<td><a href="#"><img src="~/images/eye.svg" alt="" /> Accredited Bond Agencies</a></td>
+							<td><span class="tag_bx">Tag 1</span><span class="tag_bx">Tag 2</span><span class="tag_bx">Tag 3</span></td>
+							<td class="status"><img src="~/images/close.png" alt="" /> Close</td>
+							<td class="posted"><span class="postbox">Posted</span></td>
+							<td class="jobs">0</td>
+							<td>
+								<div class="d-flex">
+									<div class="flex-shrink-0">
+										<img src="~/images/noimg.png" alt="" />
+									</div>
+									<div class="flex-grow-1 ms-2">
+										Alex
+									</div>
+								</div>
+							</td>
+							<td class="stage_box">
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<em>0%</em>
+							</td>
+							<td class="active_plan"><span>0</span></td>
+							<td>09123456789</td>
+							<td>12/06/2024 4:16:18 PM</td>
+						</tr>
+						<tr>
+							<td class="radio_btn"><input type="checkbox"></td>
+							<td><a href="#"><img src="~/images/eye.svg" alt="" /> Accredited Bond Agencies</a></td>
+							<td><span class="tag_bx">Tag 1</span><span class="tag_bx">Tag 2</span><span class="tag_bx">Tag 3</span></td>
+							<td class="status"><img src="~/images/open.png" alt="" /> Open</td>
+							<td class="posted"><span class="postbox">Posted</span></td>
+							<td class="jobs">4</td>
+							<td>
+								<div class="d-flex">
+									<div class="flex-shrink-0">
+										<img src="~/images/profileimg1.png" alt="" />
+									</div>
+									<div class="flex-grow-1 ms-2">
+										Emily
+									</div>
+								</div>
+							</td>
+							<td class="stage_box">
+								<span class="blue_stage"></span>
+								<span class="blue_stage"></span>
+								<span class="blue_stage"></span>
+								<span class="blue_stage"></span>
+								<span class="blue_stage"></span>
+								<em>100%</em>
+							</td>
+							<td class="active_plan"><span class="actv">14</span></td>
+							<td>09123456789</td>
+							<td>12/06/2024 4:16:18 PM</td>
+						</tr>
+						<tr>
+							<td class="radio_btn"><input type="checkbox"></td>
+							<td><a href="#"><img src="~/images/eye.svg" alt="" /> Accredited Bond Agencies</a></td>
+							<td><span class="tag_bx">Tag 1</span><span class="tag_bx">Tag 2</span><span class="tag_bx">Tag 3</span></td>
+							<td class="status"><img src="~/images/open.png" alt="" /> Open</td>
+							<td class="posted"><span class="postbox">Posted</span></td>
+							<td class="jobs">2</td>
+							<td>
+								<div class="d-flex">
+									<div class="flex-shrink-0">
+										<img src="~/images/profileimg2.png" alt="" />
+									</div>
+									<div class="flex-grow-1 ms-2">
+										Alex
+									</div>
+								</div>
+							</td>
+							<td class="stage_box">
+								<span class="blue_stage"></span>
+								<span class="blue_stage"></span>
+								<span class="blue_stage"></span>
+								<span class="pink_stage"></span>
+								<span class="grey_stage"></span>
+								<em>40%</em>
+							</td>
+							<td class="active_plan"><span class="actv">3</span></td>
+							<td>09123456789</td>
+							<td>12/06/2024 4:16:18 PM</td>
+						</tr>
+						<tr>
+							<td class="radio_btn"><input type="checkbox"></td>
+							<td><a href="#"><img src="~/images/eye.svg" alt="" /> Accredited Bond Agencies</a></td>
+							<td><span class="tag_bx">Tag 1</span><span class="tag_bx">Tag 2</span><span class="tag_bx">Tag 3</span></td>
+							<td class="status"><img src="~/images/close.png" alt="" /> Close</td>
+							<td class="posted"><span class="not_postbox">Not Posted</span></td>
+							<td class="jobs">0</td>
+							<td>
+								<div class="d-flex">
+									<div class="flex-shrink-0">
+										<img src="~/images/profileimg1.png" alt="" />
+									</div>
+									<div class="flex-grow-1 ms-2">
+										Emily
+									</div>
+								</div>
+							</td>
+							<td class="stage_box">
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<em>0%</em>
+							</td>
+							<td class="active_plan"><span>0</span></td>
+							<td>09123456789</td>
+							<td>12/06/2024 4:16:18 PM</td>
+						</tr>
+						<tr>
+							<td class="radio_btn"><input type="checkbox"></td>
+							<td><a href="#"><img src="~/images/eye.svg" alt="" /> Accredited Bond Agencies</a></td>
+							<td><span class="tag_bx">Tag 1</span><span class="tag_bx">Tag 2</span><span class="tag_bx">Tag 3</span></td>
+							<td class="status"><img src="~/images/open.png" alt="" /> Open</td>
+							<td class="posted"><span class="postbox">Posted</span></td>
+							<td class="jobs">10</td>
+							<td>
+								<div class="d-flex">
+									<div class="flex-shrink-0">
+										<img src="~/images/noimg.png" alt="" />
+									</div>
+									<div class="flex-grow-1 ms-2">
+										Alex
+									</div>
+								</div>
+							</td>
+							<td class="stage_box">
+								<span class="blue_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<em>20%</em>
+							</td>
+							<td class="active_plan"><span>0</span></td>
+							<td>09123456789</td>
+							<td>12/06/2024 4:16:18 PM</td>
+						</tr>
+						<tr>
+							<td class="radio_btn"><input type="checkbox"></td>
+							<td><a href="#"><img src="~/images/eye.svg" alt="" /> Accredited Bond Agencies</a></td>
+							<td><span class="tag_bx">Tag 1</span><span class="tag_bx">Tag 2</span><span class="tag_bx">Tag 3</span></td>
+							<td class="status"><img src="~/images/open.png" alt="" /> Open</td>
+							<td class="posted"><span class="postbox">Posted</span></td>
+							<td class="jobs">11</td>
+							<td>
+								<div class="d-flex">
+									<div class="flex-shrink-0">
+										<img src="~/images/profileimg1.png" alt="" />
+									</div>
+									<div class="flex-grow-1 ms-2">
+										Emily
+									</div>
+								</div>
+							</td>
+							<td class="stage_box">
+								<span class="blue_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<em>20%</em>
+							</td>
+							<td class="active_plan"><span class="actv">1</span></td>
+							<td>09123456789</td>
+							<td>12/06/2024 4:16:18 PM</td>
+						</tr>
+						<tr>
+							<td class="radio_btn"><input type="checkbox"></td>
+							<td><a href="#"><img src="~/images/eye.svg" alt="" /> Accredited Bond Agencies</a></td>
+							<td><span class="tag_bx">Tag 1</span><span class="tag_bx">Tag 2</span><span class="tag_bx">Tag 3</span></td>
+							<td class="status"><img src="~/images/open.png" alt="" /> Open</td>
+							<td class="posted"><span class="postbox">Posted</span></td>
+							<td class="jobs">2</td>
+							<td>
+								<div class="d-flex">
+									<div class="flex-shrink-0">
+										<img src="~/images/profileimg2.png" alt="" />
+									</div>
+									<div class="flex-grow-1 ms-2">
+										Alex
+									</div>
+								</div>
+							</td>
+							<td class="stage_box">
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<em>20%</em>
+							</td>
+							<td class="active_plan"><span class="actv">1</span></td>
+							<td>09123456789</td>
+							<td>12/06/2024 4:16:18 PM</td>
+						</tr>
+						<tr>
+							<td class="radio_btn"><input type="checkbox"></td>
+							<td><a href="#"><img src="~/images/eye.svg" alt="" /> Accredited Bond Agencies</a></td>
+							<td><span class="tag_bx">Tag 1</span><span class="tag_bx">Tag 2</span><span class="tag_bx">Tag 3</span></td>
+							<td class="status"><img src="~/images/open.png" alt="" /> Open</td>
+							<td class="posted"><span class="not_postbox">Not Posted</span></td>
+							<td class="jobs">0</td>
+							<td>
+								<div class="d-flex">
+									<div class="flex-shrink-0">
+										<img src="~/images/profileimg1.png" alt="" />
+									</div>
+									<div class="flex-grow-1 ms-2">
+										Emily
+									</div>
+								</div>
+							</td>
+							<td class="stage_box">
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<em>20%</em>
+							</td>
+							<td class="active_plan"><span class="actv">8</span></td>
+							<td>09123456789</td>
+							<td>12/06/2024 4:16:18 PM</td>
+						</tr>
+						<tr>
+							<td class="radio_btn"><input type="checkbox"></td>
+							<td><a href="#"><img src="~/images/eye.svg" alt="" /> Accredited Bond Agencies</a></td>
+							<td><span class="tag_bx">Tag 1</span><span class="tag_bx">Tag 2</span><span class="tag_bx">Tag 3</span></td>
+							<td class="status"><img src="~/images/open.png" alt="" /> Open</td>
+							<td class="posted"><span class="not_postbox">Not Posted</span></td>
+							<td class="jobs">0</td>
+							<td>
+								<div class="d-flex">
+									<div class="flex-shrink-0">
+										<img src="~/images/profileimg2.png" alt="" />
+									</div>
+									<div class="flex-grow-1 ms-2">
+										Alex
+									</div>
+								</div>
+							</td>
+							<td class="stage_box">
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<em>20%</em>
+							</td>
+							<td class="active_plan"><span>0</span></td>
+							<td>09123456789</td>
+							<td>12/06/2024 4:16:18 PM</td>
+						</tr>
+						<tr>
+							<td class="radio_btn"><input type="checkbox"></td>
+							<td><a href="#"><img src="~/images/eye.svg" alt="" /> Accredited Bond Agencies</a></td>
+							<td><span class="tag_bx">Tag 1</span><span class="tag_bx">Tag 2</span><span class="tag_bx">Tag 3</span></td>
+							<td class="status"><img src="~/images/close.png" alt="" /> Close</td>
+							<td class="posted"><span class="not_postbox">Not Posted</span></td>
+							<td class="jobs">0</td>
+							<td>
+								<div class="d-flex">
+									<div class="flex-shrink-0">
+										<img src="~/images/profileimg1.png" alt="" />
+									</div>
+									<div class="flex-grow-1 ms-2">
+										Emily
+									</div>
+								</div>
+							</td>
+							<td class="stage_box">
+								<span class="blue_stage"></span>
+								<span class="blue_stage"></span>
+								<span class="blue_stage"></span>
+								<span class="blue_stage"></span>
+								<span class="blue_stage"></span>
+								<em>100%</em>
+							</td>
+							<td class="active_plan"><span class="actv">2</span></td>
+							<td>09123456789</td>
+							<td>12/06/2024 4:16:18 PM</td>
+						</tr>
+						<tr>
+							<td class="radio_btn"><input type="checkbox"></td>
+							<td><a href="#"><img src="~/images/eye.svg" alt="" /> Accredited Bond Agencies</a></td>
+							<td><span class="tag_bx">Tag 1</span><span class="tag_bx">Tag 2</span><span class="tag_bx">Tag 3</span></td>
+							<td class="status"><img src="~/images/open.png" alt="" /> Open</td>
+							<td class="posted"><span class="postbox">Posted</span></td>
+							<td class="jobs">0</td>
+							<td>
+								<div class="d-flex">
+									<div class="flex-shrink-0">
+										<img src="~/images/profileimg2.png" alt="" />
+									</div>
+									<div class="flex-grow-1 ms-2">
+										Alex
+									</div>
+								</div>
+							</td>
+							<td class="stage_box">
+								<span class="blue_stage"></span>
+								<span class="blue_stage"></span>
+								<span class="pink_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<em>40%</em>
+							</td>
+							<td class="active_plan"><span>0</span></td>
+							<td>09123456789</td>
+							<td>12/06/2024 4:16:18 PM</td>
+						</tr>
+						<tr>
+							<td class="radio_btn"><input type="checkbox"></td>
+							<td><a href="#"><img src="~/images/eye.svg" alt="" /> Accredited Bond Agencies</a></td>
+							<td><span class="tag_bx">Tag 1</span><span class="tag_bx">Tag 2</span><span class="tag_bx">Tag 3</span></td>
+							<td class="status"><img src="~/images/open.png" alt="" /> Open</td>
+							<td class="posted"><span class="postbox">Posted</span></td>
+							<td class="jobs">0</td>
+							<td>
+								<div class="d-flex">
+									<div class="flex-shrink-0">
+										<img src="~/images/profileimg1.png" alt="" />
+									</div>
+									<div class="flex-grow-1 ms-2">
+										Emily
+									</div>
+								</div>
+							</td>
+							<td class="stage_box">
+								<span class="blue_stage"></span>
+								<span class="blue_stage"></span>
+								<span class="pink_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<em>40%</em>
+							</td>
+							<td class="active_plan"><span>0</span></td>
+							<td>09123456789</td>
+							<td>12/06/2024 4:16:18 PM</td>
+						</tr>
+						<tr>
+							<td class="radio_btn"><input type="checkbox"></td>
+							<td><a href="#"><img src="~/images/eye.svg" alt="" /> Accredited Bond Agencies</a></td>
+							<td><span class="tag_bx">Tag 1</span><span class="tag_bx">Tag 2</span><span class="tag_bx">Tag 3</span></td>
+							<td class="status"><img src="~/images/Close.png" alt="" /> Close</td>
+							<td class="posted"><span class="not_postbox">Not Posted</span></td>
+							<td class="jobs">0</td>
+							<td>
+								<div class="d-flex">
+									<div class="flex-shrink-0">
+										<img src="~/images/profileimg2.png" alt="" />
+									</div>
+									<div class="flex-grow-1 ms-2">
+										Alex
+									</div>
+								</div>
+							</td>
+							<td class="stage_box">
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<em>40%</em>
+							</td>
+							<td class="active_plan"><span>0</span></td>
+							<td>09123456789</td>
+							<td>12/06/2024 4:16:18 PM</td>
+						</tr>
+						<tr>
+							<td class="radio_btn"><input type="checkbox"></td>
+							<td><a href="#"><img src="~/images/eye.svg" alt="" /> Accredited Bond Agencies</a></td>
+							<td><span class="tag_bx">Tag 1</span><span class="tag_bx">Tag 2</span><span class="tag_bx">Tag 3</span></td>
+							<td class="status"><img src="~/images/open.png" alt="" /> Open</td>
+							<td class="posted"><span class="postbox">Posted</span></td>
+							<td class="jobs">8</td>
+							<td>
+								<div class="d-flex">
+									<div class="flex-shrink-0">
+										<img src="~/images/profileimg1.png" alt="" />
+									</div>
+									<div class="flex-grow-1 ms-2">
+										Emily
+									</div>
+								</div>
+							</td>
+							<td class="stage_box">
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<em>40%</em>
+							</td>
+							<td class="active_plan"><span class="actv">1</span></td>
+							<td>09123456789</td>
+							<td>12/06/2024 4:16:18 PM</td>
+						</tr>
+						<tr>
+							<td class="radio_btn"><input type="checkbox"></td>
+							<td><a href="#"><img src="~/images/eye.svg" alt="" /> Accredited Bond Agencies</a></td>
+							<td><span class="tag_bx">Tag 1</span><span class="tag_bx">Tag 2</span><span class="tag_bx">Tag 3</span></td>
+							<td class="status"><img src="~/images/open.png" alt="" /> Open</td>
+							<td class="posted"><span class="postbox">Posted</span></td>
+							<td class="jobs">13</td>
+							<td>
+								<div class="d-flex">
+									<div class="flex-shrink-0">
+										<img src="~/images/profileimg2.png" alt="" />
+									</div>
+									<div class="flex-grow-1 ms-2">
+										Alex
+									</div>
+								</div>
+							</td>
+							<td class="stage_box">
+								<span class="blue_stage"></span>
+								<span class="blue_stage"></span>
+								<span class="blue_stage"></span>
+								<span class="blue_stage"></span>
+								<span class="blue_stage"></span>
+								<em>100%</em>
+							</td>
+							<td class="active_plan"><span class="actv">2</span></td>
+							<td>09123456789</td>
+							<td>12/06/2024 4:16:18 PM</td>
+						</tr>
+						<tr>
+							<td class="radio_btn"><input type="checkbox"></td>
+							<td><a href="#"><img src="~/images/eye.svg" alt="" /> Accredited Bond Agencies</a></td>
+							<td><span class="tag_bx">Tag 1</span><span class="tag_bx">Tag 2</span><span class="tag_bx">Tag 3</span></td>
+							<td class="status"><img src="~/images/open.png" alt="" /> Open</td>
+							<td class="posted"><span class="postbox">Posted</span></td>
+							<td class="jobs">7</td>
+							<td>
+								<div class="d-flex">
+									<div class="flex-shrink-0">
+										<img src="~/images/profileimg1.png" alt="" />
+									</div>
+									<div class="flex-grow-1 ms-2">
+										Emily
+									</div>
+								</div>
+							</td>
+							<td class="stage_box">
+								<span class="blue_stage"></span>
+								<span class="blue_stage"></span>
+								<span class="pink_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<em>40%</em>
+							</td>
+							<td class="active_plan"><span class="actv">12</span></td>
+							<td>09123456789</td>
+							<td>12/06/2024 4:16:18 PM</td>
+						</tr>
+						<tr>
+							<td class="radio_btn"><input type="checkbox"></td>
+							<td><a href="#"><img src="~/images/eye.svg" alt="" /> Accredited Bond Agencies</a></td>
+							<td><span class="tag_bx">Tag 1</span><span class="tag_bx">Tag 2</span><span class="tag_bx">Tag 3</span></td>
+							<td class="status"><img src="~/images/open.png" alt="" /> Open</td>
+							<td class="posted"><span class="postbox">Posted</span></td>
+							<td class="jobs">1</td>
+							<td>
+								<div class="d-flex">
+									<div class="flex-shrink-0">
+										<img src="~/images/profileimg2.png" alt="" />
+									</div>
+									<div class="flex-grow-1 ms-2">
+										Alex
+									</div>
+								</div>
+							</td>
+							<td class="stage_box">
+								<span class="blue_stage"></span>
+								<span class="blue_stage"></span>
+								<span class="pink_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<em>40%</em>
+							</td>
+							<td class="active_plan"><span>0</span></td>
+							<td>09123456789</td>
+							<td>12/06/2024 4:16:18 PM</td>
+						</tr>
+						<tr>
+							<td class="radio_btn"><input type="checkbox"></td>
+							<td><a href="#"><img src="~/images/eye.svg" alt="" /> Accredited Bond Agencies</a></td>
+							<td><span class="tag_bx">Tag 1</span><span class="tag_bx">Tag 2</span><span class="tag_bx">Tag 3</span></td>
+							<td class="status"><img src="~/images/open.png" alt="" /> Open</td>
+							<td class="posted"><span class="postbox">Posted</span></td>
+							<td class="jobs">10</td>
+							<td>
+								<div class="d-flex">
+									<div class="flex-shrink-0">
+										<img src="~/images/noimg.png" alt="" />
+									</div>
+									<div class="flex-grow-1 ms-2">
+										Alex
+									</div>
+								</div>
+							</td>
+							<td class="stage_box">
+								<span class="blue_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<em>20%</em>
+							</td>
+							<td class="active_plan"><span>0</span></td>
+							<td>09123456789</td>
+							<td>12/06/2024 4:16:18 PM</td>
+						</tr>
+						<tr>
+							<td class="radio_btn"><input type="checkbox"></td>
+							<td><a href="#"><img src="~/images/eye.svg" alt="" /> Accredited Bond Agencies</a></td>
+							<td><span class="tag_bx">Tag 1</span><span class="tag_bx">Tag 2</span><span class="tag_bx">Tag 3</span></td>
+							<td class="status"><img src="~/images/open.png" alt="" /> Open</td>
+							<td class="posted"><span class="postbox">Posted</span></td>
+							<td class="jobs">11</td>
+							<td>
+								<div class="d-flex">
+									<div class="flex-shrink-0">
+										<img src="~/images/profileimg1.png" alt="" />
+									</div>
+									<div class="flex-grow-1 ms-2">
+										Emily
+									</div>
+								</div>
+							</td>
+							<td class="stage_box">
+								<span class="blue_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<em>20%</em>
+							</td>
+							<td class="active_plan"><span class="actv">1</span></td>
+							<td>09123456789</td>
+							<td>12/06/2024 4:16:18 PM</td>
+						</tr>
+						<tr>
+							<td class="radio_btn"><input type="checkbox"></td>
+							<td><a href="#"><img src="~/images/eye.svg" alt="" /> Accredited Bond Agencies</a></td>
+							<td><span class="tag_bx">Tag 1</span><span class="tag_bx">Tag 2</span><span class="tag_bx">Tag 3</span></td>
+							<td class="status"><img src="~/images/open.png" alt="" /> Open</td>
+							<td class="posted"><span class="postbox">Posted</span></td>
+							<td class="jobs">2</td>
+							<td>
+								<div class="d-flex">
+									<div class="flex-shrink-0">
+										<img src="~/images/profileimg2.png" alt="" />
+									</div>
+									<div class="flex-grow-1 ms-2">
+										Alex
+									</div>
+								</div>
+							</td>
+							<td class="stage_box">
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<em>20%</em>
+							</td>
+							<td class="active_plan"><span class="actv">1</span></td>
+							<td>09123456789</td>
+							<td>12/06/2024 4:16:18 PM</td>
+						</tr>
+						<tr>
+							<td class="radio_btn"><input type="checkbox"></td>
+							<td><a href="#"><img src="~/images/eye.svg" alt="" /> Accredited Bond Agencies</a></td>
+							<td><span class="tag_bx">Tag 1</span><span class="tag_bx">Tag 2</span><span class="tag_bx">Tag 3</span></td>
+							<td class="status"><img src="~/images/open.png" alt="" /> Open</td>
+							<td class="posted"><span class="not_postbox">Not Posted</span></td>
+							<td class="jobs">0</td>
+							<td>
+								<div class="d-flex">
+									<div class="flex-shrink-0">
+										<img src="~/images/profileimg1.png" alt="" />
+									</div>
+									<div class="flex-grow-1 ms-2">
+										Emily
+									</div>
+								</div>
+							</td>
+							<td class="stage_box">
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<em>20%</em>
+							</td>
+							<td class="active_plan"><span class="actv">8</span></td>
+							<td>09123456789</td>
+							<td>12/06/2024 4:16:18 PM</td>
+						</tr>
+						<tr>
+							<td class="radio_btn"><input type="checkbox"></td>
+							<td><a href="#"><img src="~/images/eye.svg" alt="" /> Accredited Bond Agencies</a></td>
+							<td><span class="tag_bx">Tag 1</span><span class="tag_bx">Tag 2</span><span class="tag_bx">Tag 3</span></td>
+							<td class="status"><img src="~/images/open.png" alt="" /> Open</td>
+							<td class="posted"><span class="not_postbox">Not Posted</span></td>
+							<td class="jobs">0</td>
+							<td>
+								<div class="d-flex">
+									<div class="flex-shrink-0">
+										<img src="~/images/profileimg2.png" alt="" />
+									</div>
+									<div class="flex-grow-1 ms-2">
+										Alex
+									</div>
+								</div>
+							</td>
+							<td class="stage_box">
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<em>20%</em>
+							</td>
+							<td class="active_plan"><span>0</span></td>
+							<td>09123456789</td>
+							<td>12/06/2024 4:16:18 PM</td>
+						</tr>
+						<tr>
+							<td class="radio_btn"><input type="checkbox"></td>
+							<td><a href="#"><img src="~/images/eye.svg" alt="" /> Accredited Bond Agencies</a></td>
+							<td><span class="tag_bx">Tag 1</span><span class="tag_bx">Tag 2</span><span class="tag_bx">Tag 3</span></td>
+							<td class="status"><img src="~/images/close.png" alt="" /> Close</td>
+							<td class="posted"><span class="not_postbox">Not Posted</span></td>
+							<td class="jobs">0</td>
+							<td>
+								<div class="d-flex">
+									<div class="flex-shrink-0">
+										<img src="~/images/profileimg1.png" alt="" />
+									</div>
+									<div class="flex-grow-1 ms-2">
+										Emily
+									</div>
+								</div>
+							</td>
+							<td class="stage_box">
+								<span class="blue_stage"></span>
+								<span class="blue_stage"></span>
+								<span class="blue_stage"></span>
+								<span class="blue_stage"></span>
+								<span class="blue_stage"></span>
+								<em>100%</em>
+							</td>
+							<td class="active_plan"><span class="actv">2</span></td>
+							<td>09123456789</td>
+							<td>12/06/2024 4:16:18 PM</td>
+						</tr>
+						<tr>
+							<td class="radio_btn"><input type="checkbox"></td>
+							<td><a href="#"><img src="~/images/eye.svg" alt="" /> Accredited Bond Agencies</a></td>
+							<td><span class="tag_bx">Tag 1</span><span class="tag_bx">Tag 2</span><span class="tag_bx">Tag 3</span></td>
+							<td class="status"><img src="~/images/open.png" alt="" /> Open</td>
+							<td class="posted"><span class="postbox">Posted</span></td>
+							<td class="jobs">0</td>
+							<td>
+								<div class="d-flex">
+									<div class="flex-shrink-0">
+										<img src="~/images/profileimg2.png" alt="" />
+									</div>
+									<div class="flex-grow-1 ms-2">
+										Alex
+									</div>
+								</div>
+							</td>
+							<td class="stage_box">
+								<span class="blue_stage"></span>
+								<span class="blue_stage"></span>
+								<span class="pink_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<em>40%</em>
+							</td>
+							<td class="active_plan"><span>0</span></td>
+							<td>09123456789</td>
+							<td>12/06/2024 4:16:18 PM</td>
+						</tr>
+						<tr>
+							<td class="radio_btn"><input type="checkbox"></td>
+							<td><a href="#"><img src="~/images/eye.svg" alt="" /> Accredited Bond Agencies</a></td>
+							<td><span class="tag_bx">Tag 1</span><span class="tag_bx">Tag 2</span><span class="tag_bx">Tag 3</span></td>
+							<td class="status"><img src="~/images/open.png" alt="" /> Open</td>
+							<td class="posted"><span class="postbox">Posted</span></td>
+							<td class="jobs">0</td>
+							<td>
+								<div class="d-flex">
+									<div class="flex-shrink-0">
+										<img src="~/images/profileimg1.png" alt="" />
+									</div>
+									<div class="flex-grow-1 ms-2">
+										Emily
+									</div>
+								</div>
+							</td>
+							<td class="stage_box">
+								<span class="blue_stage"></span>
+								<span class="blue_stage"></span>
+								<span class="pink_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<em>40%</em>
+							</td>
+							<td class="active_plan"><span>0</span></td>
+							<td>09123456789</td>
+							<td>12/06/2024 4:16:18 PM</td>
+						</tr>
+						<tr>
+							<td class="radio_btn"><input type="checkbox"></td>
+							<td><a href="#"><img src="~/images/eye.svg" alt="" /> Accredited Bond Agencies</a></td>
+							<td><span class="tag_bx">Tag 1</span><span class="tag_bx">Tag 2</span><span class="tag_bx">Tag 3</span></td>
+							<td class="status"><img src="~/images/Close.png" alt="" /> Close</td>
+							<td class="posted"><span class="not_postbox">Not Posted</span></td>
+							<td class="jobs">0</td>
+							<td>
+								<div class="d-flex">
+									<div class="flex-shrink-0">
+										<img src="~/images/profileimg2.png" alt="" />
+									</div>
+									<div class="flex-grow-1 ms-2">
+										Alex
+									</div>
+								</div>
+							</td>
+							<td class="stage_box">
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<em>40%</em>
+							</td>
+							<td class="active_plan"><span>0</span></td>
+							<td>09123456789</td>
+							<td>12/06/2024 4:16:18 PM</td>
+						</tr>
+						<tr>
+							<td class="radio_btn"><input type="checkbox"></td>
+							<td><a href="#"><img src="~/images/eye.svg" alt="" /> Accredited Bond Agencies</a></td>
+							<td><span class="tag_bx">Tag 1</span><span class="tag_bx">Tag 2</span><span class="tag_bx">Tag 3</span></td>
+							<td class="status"><img src="~/images/open.png" alt="" /> Open</td>
+							<td class="posted"><span class="postbox">Posted</span></td>
+							<td class="jobs">8</td>
+							<td>
+								<div class="d-flex">
+									<div class="flex-shrink-0">
+										<img src="~/images/profileimg1.png" alt="" />
+									</div>
+									<div class="flex-grow-1 ms-2">
+										Emily
+									</div>
+								</div>
+							</td>
+							<td class="stage_box">
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<em>40%</em>
+							</td>
+							<td class="active_plan"><span class="actv">1</span></td>
+							<td>09123456789</td>
+							<td>12/06/2024 4:16:18 PM</td>
+						</tr>
+						<tr>
+							<td class="radio_btn"><input type="checkbox"></td>
+							<td><a href="#"><img src="~/images/eye.svg" alt="" /> Accredited Bond Agencies</a></td>
+							<td><span class="tag_bx">Tag 1</span><span class="tag_bx">Tag 2</span><span class="tag_bx">Tag 3</span></td>
+							<td class="status"><img src="~/images/open.png" alt="" /> Open</td>
+							<td class="posted"><span class="postbox">Posted</span></td>
+							<td class="jobs">13</td>
+							<td>
+								<div class="d-flex">
+									<div class="flex-shrink-0">
+										<img src="~/images/profileimg2.png" alt="" />
+									</div>
+									<div class="flex-grow-1 ms-2">
+										Alex
+									</div>
+								</div>
+							</td>
+							<td class="stage_box">
+								<span class="blue_stage"></span>
+								<span class="blue_stage"></span>
+								<span class="blue_stage"></span>
+								<span class="blue_stage"></span>
+								<span class="blue_stage"></span>
+								<em>100%</em>
+							</td>
+							<td class="active_plan"><span class="actv">2</span></td>
+							<td>09123456789</td>
+							<td>12/06/2024 4:16:18 PM</td>
+						</tr>
+						<tr>
+							<td class="radio_btn"><input type="checkbox"></td>
+							<td><a href="#"><img src="~/images/eye.svg" alt="" /> Accredited Bond Agencies</a></td>
+							<td><span class="tag_bx">Tag 1</span><span class="tag_bx">Tag 2</span><span class="tag_bx">Tag 3</span></td>
+							<td class="status"><img src="~/images/open.png" alt="" /> Open</td>
+							<td class="posted"><span class="postbox">Posted</span></td>
+							<td class="jobs">7</td>
+							<td>
+								<div class="d-flex">
+									<div class="flex-shrink-0">
+										<img src="~/images/profileimg1.png" alt="" />
+									</div>
+									<div class="flex-grow-1 ms-2">
+										Emily
+									</div>
+								</div>
+							</td>
+							<td class="stage_box">
+								<span class="blue_stage"></span>
+								<span class="blue_stage"></span>
+								<span class="pink_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<em>40%</em>
+							</td>
+							<td class="active_plan"><span class="actv">12</span></td>
+							<td>09123456789</td>
+							<td>12/06/2024 4:16:18 PM</td>
+						</tr>
+						<tr>
+							<td class="radio_btn"><input type="checkbox"></td>
+							<td><a href="#"><img src="~/images/eye.svg" alt="" /> Accredited Bond Agencies</a></td>
+							<td><span class="tag_bx">Tag 1</span><span class="tag_bx">Tag 2</span><span class="tag_bx">Tag 3</span></td>
+							<td class="status"><img src="~/images/open.png" alt="" /> Open</td>
+							<td class="posted"><span class="postbox">Posted</span></td>
+							<td class="jobs">1</td>
+							<td>
+								<div class="d-flex">
+									<div class="flex-shrink-0">
+										<img src="~/images/profileimg2.png" alt="" />
+									</div>
+									<div class="flex-grow-1 ms-2">
+										Alex
+									</div>
+								</div>
+							</td>
+							<td class="stage_box">
+								<span class="blue_stage"></span>
+								<span class="blue_stage"></span>
+								<span class="pink_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<em>40%</em>
+							</td>
+							<td class="active_plan"><span>0</span></td>
+							<td>09123456789</td>
+							<td>12/06/2024 4:16:18 PM</td>
+						</tr>
+						<tr>
+							<td class="radio_btn"><input type="checkbox"></td>
+							<td><a href="#"><img src="~/images/eye.svg" alt="" /> Accredited Bond Agencies</a></td>
+							<td><span class="tag_bx">Tag 1</span><span class="tag_bx">Tag 2</span><span class="tag_bx">Tag 3</span></td>
+							<td class="status"><img src="~/images/open.png" alt="" /> Open</td>
+							<td class="posted"><span class="postbox">Posted</span></td>
+							<td class="jobs">10</td>
+							<td>
+								<div class="d-flex">
+									<div class="flex-shrink-0">
+										<img src="~/images/noimg.png" alt="" />
+									</div>
+									<div class="flex-grow-1 ms-2">
+										Alex
+									</div>
+								</div>
+							</td>
+							<td class="stage_box">
+								<span class="blue_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<em>20%</em>
+							</td>
+							<td class="active_plan"><span>0</span></td>
+							<td>09123456789</td>
+							<td>12/06/2024 4:16:18 PM</td>
+						</tr>
+						<tr>
+							<td class="radio_btn"><input type="checkbox"></td>
+							<td><a href="#"><img src="~/images/eye.svg" alt="" /> Accredited Bond Agencies</a></td>
+							<td><span class="tag_bx">Tag 1</span><span class="tag_bx">Tag 2</span><span class="tag_bx">Tag 3</span></td>
+							<td class="status"><img src="~/images/open.png" alt="" /> Open</td>
+							<td class="posted"><span class="postbox">Posted</span></td>
+							<td class="jobs">11</td>
+							<td>
+								<div class="d-flex">
+									<div class="flex-shrink-0">
+										<img src="~/images/profileimg1.png" alt="" />
+									</div>
+									<div class="flex-grow-1 ms-2">
+										Emily
+									</div>
+								</div>
+							</td>
+							<td class="stage_box">
+								<span class="blue_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<em>20%</em>
+							</td>
+							<td class="active_plan"><span class="actv">1</span></td>
+							<td>09123456789</td>
+							<td>12/06/2024 4:16:18 PM</td>
+						</tr>
+						<tr>
+							<td class="radio_btn"><input type="checkbox"></td>
+							<td><a href="#"><img src="~/images/eye.svg" alt="" /> Accredited Bond Agencies</a></td>
+							<td><span class="tag_bx">Tag 1</span><span class="tag_bx">Tag 2</span><span class="tag_bx">Tag 3</span></td>
+							<td class="status"><img src="~/images/open.png" alt="" /> Open</td>
+							<td class="posted"><span class="postbox">Posted</span></td>
+							<td class="jobs">2</td>
+							<td>
+								<div class="d-flex">
+									<div class="flex-shrink-0">
+										<img src="~/images/profileimg2.png" alt="" />
+									</div>
+									<div class="flex-grow-1 ms-2">
+										Alex
+									</div>
+								</div>
+							</td>
+							<td class="stage_box">
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<em>20%</em>
+							</td>
+							<td class="active_plan"><span class="actv">1</span></td>
+							<td>09123456789</td>
+							<td>12/06/2024 4:16:18 PM</td>
+						</tr>
+						<tr>
+							<td class="radio_btn"><input type="checkbox"></td>
+							<td><a href="#"><img src="~/images/eye.svg" alt="" /> Accredited Bond Agencies</a></td>
+							<td><span class="tag_bx">Tag 1</span><span class="tag_bx">Tag 2</span><span class="tag_bx">Tag 3</span></td>
+							<td class="status"><img src="~/images/open.png" alt="" /> Open</td>
+							<td class="posted"><span class="not_postbox">Not Posted</span></td>
+							<td class="jobs">0</td>
+							<td>
+								<div class="d-flex">
+									<div class="flex-shrink-0">
+										<img src="~/images/profileimg1.png" alt="" />
+									</div>
+									<div class="flex-grow-1 ms-2">
+										Emily
+									</div>
+								</div>
+							</td>
+							<td class="stage_box">
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<em>20%</em>
+							</td>
+							<td class="active_plan"><span class="actv">8</span></td>
+							<td>09123456789</td>
+							<td>12/06/2024 4:16:18 PM</td>
+						</tr>
+						<tr>
+							<td class="radio_btn"><input type="checkbox"></td>
+							<td><a href="#"><img src="~/images/eye.svg" alt="" /> Accredited Bond Agencies</a></td>
+							<td><span class="tag_bx">Tag 1</span><span class="tag_bx">Tag 2</span><span class="tag_bx">Tag 3</span></td>
+							<td class="status"><img src="~/images/open.png" alt="" /> Open</td>
+							<td class="posted"><span class="not_postbox">Not Posted</span></td>
+							<td class="jobs">0</td>
+							<td>
+								<div class="d-flex">
+									<div class="flex-shrink-0">
+										<img src="~/images/profileimg2.png" alt="" />
+									</div>
+									<div class="flex-grow-1 ms-2">
+										Alex
+									</div>
+								</div>
+							</td>
+							<td class="stage_box">
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<em>20%</em>
+							</td>
+							<td class="active_plan"><span>0</span></td>
+							<td>09123456789</td>
+							<td>12/06/2024 4:16:18 PM</td>
+						</tr>
+						<tr>
+							<td class="radio_btn"><input type="checkbox"></td>
+							<td><a href="#"><img src="~/images/eye.svg" alt="" /> Accredited Bond Agencies</a></td>
+							<td><span class="tag_bx">Tag 1</span><span class="tag_bx">Tag 2</span><span class="tag_bx">Tag 3</span></td>
+							<td class="status"><img src="~/images/close.png" alt="" /> Close</td>
+							<td class="posted"><span class="not_postbox">Not Posted</span></td>
+							<td class="jobs">0</td>
+							<td>
+								<div class="d-flex">
+									<div class="flex-shrink-0">
+										<img src="~/images/profileimg1.png" alt="" />
+									</div>
+									<div class="flex-grow-1 ms-2">
+										Emily
+									</div>
+								</div>
+							</td>
+							<td class="stage_box">
+								<span class="blue_stage"></span>
+								<span class="blue_stage"></span>
+								<span class="blue_stage"></span>
+								<span class="blue_stage"></span>
+								<span class="blue_stage"></span>
+								<em>100%</em>
+							</td>
+							<td class="active_plan"><span class="actv">2</span></td>
+							<td>09123456789</td>
+							<td>12/06/2024 4:16:18 PM</td>
+						</tr>
+						<tr>
+							<td class="radio_btn"><input type="checkbox"></td>
+							<td><a href="#"><img src="~/images/eye.svg" alt="" /> Accredited Bond Agencies</a></td>
+							<td><span class="tag_bx">Tag 1</span><span class="tag_bx">Tag 2</span><span class="tag_bx">Tag 3</span></td>
+							<td class="status"><img src="~/images/open.png" alt="" /> Open</td>
+							<td class="posted"><span class="postbox">Posted</span></td>
+							<td class="jobs">0</td>
+							<td>
+								<div class="d-flex">
+									<div class="flex-shrink-0">
+										<img src="~/images/profileimg2.png" alt="" />
+									</div>
+									<div class="flex-grow-1 ms-2">
+										Alex
+									</div>
+								</div>
+							</td>
+							<td class="stage_box">
+								<span class="blue_stage"></span>
+								<span class="blue_stage"></span>
+								<span class="pink_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<em>40%</em>
+							</td>
+							<td class="active_plan"><span>0</span></td>
+							<td>09123456789</td>
+							<td>12/06/2024 4:16:18 PM</td>
+						</tr>
+						<tr>
+							<td class="radio_btn"><input type="checkbox"></td>
+							<td><a href="#"><img src="~/images/eye.svg" alt="" /> Accredited Bond Agencies</a></td>
+							<td><span class="tag_bx">Tag 1</span><span class="tag_bx">Tag 2</span><span class="tag_bx">Tag 3</span></td>
+							<td class="status"><img src="~/images/open.png" alt="" /> Open</td>
+							<td class="posted"><span class="postbox">Posted</span></td>
+							<td class="jobs">0</td>
+							<td>
+								<div class="d-flex">
+									<div class="flex-shrink-0">
+										<img src="~/images/profileimg1.png" alt="" />
+									</div>
+									<div class="flex-grow-1 ms-2">
+										Emily
+									</div>
+								</div>
+							</td>
+							<td class="stage_box">
+								<span class="blue_stage"></span>
+								<span class="blue_stage"></span>
+								<span class="pink_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<em>40%</em>
+							</td>
+							<td class="active_plan"><span>0</span></td>
+							<td>09123456789</td>
+							<td>12/06/2024 4:16:18 PM</td>
+						</tr>
+						<tr>
+							<td class="radio_btn"><input type="checkbox"></td>
+							<td><a href="#"><img src="~/images/eye.svg" alt="" /> Accredited Bond Agencies</a></td>
+							<td><span class="tag_bx">Tag 1</span><span class="tag_bx">Tag 2</span><span class="tag_bx">Tag 3</span></td>
+							<td class="status"><img src="~/images/Close.png" alt="" /> Close</td>
+							<td class="posted"><span class="not_postbox">Not Posted</span></td>
+							<td class="jobs">0</td>
+							<td>
+								<div class="d-flex">
+									<div class="flex-shrink-0">
+										<img src="~/images/profileimg2.png" alt="" />
+									</div>
+									<div class="flex-grow-1 ms-2">
+										Alex
+									</div>
+								</div>
+							</td>
+							<td class="stage_box">
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<em>40%</em>
+							</td>
+							<td class="active_plan"><span>0</span></td>
+							<td>09123456789</td>
+							<td>12/06/2024 4:16:18 PM</td>
+						</tr>
+						<tr>
+							<td class="radio_btn"><input type="checkbox"></td>
+							<td><a href="#"><img src="~/images/eye.svg" alt="" /> Accredited Bond Agencies</a></td>
+							<td><span class="tag_bx">Tag 1</span><span class="tag_bx">Tag 2</span><span class="tag_bx">Tag 3</span></td>
+							<td class="status"><img src="~/images/open.png" alt="" /> Open</td>
+							<td class="posted"><span class="postbox">Posted</span></td>
+							<td class="jobs">8</td>
+							<td>
+								<div class="d-flex">
+									<div class="flex-shrink-0">
+										<img src="~/images/profileimg1.png" alt="" />
+									</div>
+									<div class="flex-grow-1 ms-2">
+										Emily
+									</div>
+								</div>
+							</td>
+							<td class="stage_box">
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<em>40%</em>
+							</td>
+							<td class="active_plan"><span class="actv">1</span></td>
+							<td>09123456789</td>
+							<td>12/06/2024 4:16:18 PM</td>
+						</tr>
+						<tr>
+							<td class="radio_btn"><input type="checkbox"></td>
+							<td><a href="#"><img src="~/images/eye.svg" alt="" /> Accredited Bond Agencies</a></td>
+							<td><span class="tag_bx">Tag 1</span><span class="tag_bx">Tag 2</span><span class="tag_bx">Tag 3</span></td>
+							<td class="status"><img src="~/images/open.png" alt="" /> Open</td>
+							<td class="posted"><span class="postbox">Posted</span></td>
+							<td class="jobs">13</td>
+							<td>
+								<div class="d-flex">
+									<div class="flex-shrink-0">
+										<img src="~/images/profileimg2.png" alt="" />
+									</div>
+									<div class="flex-grow-1 ms-2">
+										Alex
+									</div>
+								</div>
+							</td>
+							<td class="stage_box">
+								<span class="blue_stage"></span>
+								<span class="blue_stage"></span>
+								<span class="blue_stage"></span>
+								<span class="blue_stage"></span>
+								<span class="blue_stage"></span>
+								<em>100%</em>
+							</td>
+							<td class="active_plan"><span class="actv">2</span></td>
+							<td>09123456789</td>
+							<td>12/06/2024 4:16:18 PM</td>
+						</tr>
+						<tr>
+							<td class="radio_btn"><input type="checkbox"></td>
+							<td><a href="#"><img src="~/images/eye.svg" alt="" /> Accredited Bond Agencies</a></td>
+							<td><span class="tag_bx">Tag 1</span><span class="tag_bx">Tag 2</span><span class="tag_bx">Tag 3</span></td>
+							<td class="status"><img src="~/images/open.png" alt="" /> Open</td>
+							<td class="posted"><span class="postbox">Posted</span></td>
+							<td class="jobs">7</td>
+							<td>
+								<div class="d-flex">
+									<div class="flex-shrink-0">
+										<img src="~/images/profileimg1.png" alt="" />
+									</div>
+									<div class="flex-grow-1 ms-2">
+										Emily
+									</div>
+								</div>
+							</td>
+							<td class="stage_box">
+								<span class="blue_stage"></span>
+								<span class="blue_stage"></span>
+								<span class="pink_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<em>40%</em>
+							</td>
+							<td class="active_plan"><span class="actv">12</span></td>
+							<td>09123456789</td>
+							<td>12/06/2024 4:16:18 PM</td>
+						</tr>
+						<tr>
+							<td class="radio_btn"><input type="checkbox"></td>
+							<td><a href="#"><img src="~/images/eye.svg" alt="" /> Accredited Bond Agencies</a></td>
+							<td><span class="tag_bx">Tag 1</span><span class="tag_bx">Tag 2</span><span class="tag_bx">Tag 3</span></td>
+							<td class="status"><img src="~/images/open.png" alt="" /> Open</td>
+							<td class="posted"><span class="postbox">Posted</span></td>
+							<td class="jobs">1</td>
+							<td>
+								<div class="d-flex">
+									<div class="flex-shrink-0">
+										<img src="~/images/profileimg2.png" alt="" />
+									</div>
+									<div class="flex-grow-1 ms-2">
+										Alex
+									</div>
+								</div>
+							</td>
+							<td class="stage_box">
+								<span class="blue_stage"></span>
+								<span class="blue_stage"></span>
+								<span class="pink_stage"></span>
+								<span class="grey_stage"></span>
+								<span class="grey_stage"></span>
+								<em>40%</em>
+							</td>
+							<td class="active_plan"><span>0</span></td>
+							<td>09123456789</td>
+							<td>12/06/2024 4:16:18 PM</td>
+						</tr>
+					</tbody>
+					<tbody class="table_bot">
+						<tr>
+							<td class="show_pagi"><a href="#" class="create_new">Create New Company</a> <a href="#" class="create_new create_new2">View Open Jobs</a></td>
+							<td class="showing">Showing 1-20 of 106 entities</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="modal-dialog crte_cmpny_pop frmBx" id="createNewModal">
+	<div class="modal-content">
+		<div class="modal-body">
+			<div class="cmpny_pop_full">
+				<div class="popHead">
+					<h6>Create New Company</h6>
+					<p>Enter the required information. </p>
+					<button type="button" class="btn-close"><img src="~/images/close1.png" alt="close1" /></button>
+				</div>
+				<form>
+					<div class="frmBxs">
+						<div class="frmMain">
+							<h6>Company Details</h6>
+							<div class="row">
+								<div class="col-md-4 frm">
+									<label>Company Name :</label>
+								</div>
+								<div class="col-md-8 frm">
+									<input type="text" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4 frm">
+									<label>Legal Name :</label>
+								</div>
+								<div class="col-md-8 frm">
+									<input type="text" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4 frm">
+									<label>Main Contact :</label>
+								</div>
+								<div class="col-md-8 frm">
+									<div class="addFld">
+										<input type="tel" />
+										<a href="#" class="plus" id="extend"><i class="fa-solid fa-circle-plus"></i></a>
+									</div>
+									<div id="extend-field"></div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4 frm">
+									<label>Parent Company :</label>
+								</div>
+								<div class="col-md-8 frm">
+									<div class="addFld">
+										<input type="text" />
+										<a href="#" class="plus" id="extend1"><i class="fa-solid fa-circle-plus"></i></a>
+									</div>
+									<div id="extend-field1"></div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4 frm">
+									<label>Logo :</label>
+								</div>
+								<div class="col-md-8 frm">
+									<div class="box">
+										<input type="file" name="file-3[]" id="file-3" class="inputfile inputfile-3" data-multiple-caption="{count} files selected" multiple />
+										<label for="file-3"><img src="~/images/file.png" alt="file" /> <span><i>Drag and drop a logo, or</i><b>Select a logo</b></span></label>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4 frm">
+									<label>LinkedIn :</label>
+								</div>
+								<div class="col-md-8 frm">
+									<input type="text" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4 frm">
+									<label>Twitter :</label>
+								</div>
+								<div class="col-md-8 frm">
+									<input type="text" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4 frm">
+									<label>Facebook :</label>
+								</div>
+								<div class="col-md-8 frm">
+									<input type="text" />
+								</div>
+							</div>
+						</div>
+						<div class="frmMain">
+							<h6>PRIMARY ADDRESS</h6>
+							<div class="row">
+								<div class="col-md-4 frm">
+									<label>Office :</label>
+								</div>
+								<div class="col-md-8 frm">
+									<input type="text" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4 frm">
+									<label>Address :</label>
+								</div>
+								<div class="col-md-8 frm">
+									<input type="text" />
+									<input type="text" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4 frm">
+									<label>Suburb :</label>
+								</div>
+								<div class="col-md-8 frm">
+									<input type="text" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4 frm">
+									<label>State / Postcode :</label>
+								</div>
+								<div class="col-md-8 frm">
+									<div class="row">
+										<div class="col-md-6">
+											<input type="text" placeholder="State" />
+										</div>
+										<div class="col-md-6">
+											<input type="text" placeholder="Postcode" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4 frm">
+									<label>Country :</label>
+								</div>
+								<div class="col-md-8 frm">
+									<select>
+										<option>Country 1</option>
+										<option>Country 1</option>
+										<option>Country 1</option>
+									</select>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4 frm">
+									<label>Phone :</label>
+								</div>
+								<div class="col-md-8 frm">
+									<input type="tel" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4 frm">
+									<label>Fax :</label>
+								</div>
+								<div class="col-md-8 frm">
+									<input type="text" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4 frm">
+									<label>URL :</label>
+								</div>
+								<div class="col-md-8 frm">
+									<input type="text" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12 frm">
+									<h6>OTHER ADDRESSES (1)</h6>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4 frm">
+									<label>Sydney Office :</label>
+								</div>
+								<div class="col-md-8 frm">
+									<a class="ofc" href="#">Sydney, NSW</a>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12 frm">
+									<a class="addOfc" href="#"><i class="fa-solid fa-circle-plus"></i>Add a new office</a>
+								</div>
+							</div>
+						</div>
+						<div class="frmMain">
+							<h6>OTHER DETAILS</h6>
+							<div class="row">
+								<div class="col-md-4 frm">
+									<label>Account Owner :</label>
+								</div>
+								<div class="col-md-8 frm">
+									<input type="text" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4 frm">
+									<label>Recruiters :</label>
+								</div>
+								<div class="col-md-8 frm">
+									<input type="text" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4 frm">
+									<label>Status :</label>
+								</div>
+								<div class="col-md-8 frm">
+									<input type="text" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4 frm">
+									<label>Company Terms :</label>
+								</div>
+								<div class="col-md-8 frm">
+									<div class="box">
+										<input type="file" name="file-3[]" id="file-3" class="inputfile inputfile-3" data-multiple-caption="{count} files selected" multiple />
+										<label for="file-3"><img src="~/images/file.png" alt="file" /> <span><i>Drag and drop a logo, or</i><b>Select a logo</b></span></label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<ul class="btnGrp">
+						<li><button class="cnclBtn wht">Cancel</button></li>
+						<li><input type="submit" value="Create" class="cnclBtn" /></li>
+					</ul>
+				</form>
+			</div>
+
+
+
+		</div>
+	</div>
+</div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade agenciesModal" id="agenciesModal1">
+	<div class="modal-dialog modal-dialog-centered modal-lg">
+		<div class="modal-content">
+			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><img src="~/images/close.svg" alt="" /></button>
+			<div class="accerMedia d-flex">
+				<i><img src="~/images/logouser.svg" alt="" /></i>
+				<div class="flex1">
+					<h4>Accredited Bond Agencies <span class="actvs">Active</span></h4>
+					<ul>
+						<li><img src="~/images/user.svg" alt="" /> Alex</li>
+						<li><img src="~/images/call.svg" alt="" /> 09123456789</li>
+						<li><img src="~/images/sms.svg" alt="" /> alex.company@gmail.com</li>
+						<li><img src="~/images/location.svg" alt="" /> Australia</li>
+					</ul>
+				</div>
+			</div>
+			<div class="compnYdtl">
+				<h3>Company Details</h3>
+				<div class="row">
+					<div class="col-lg-4 col-md-5">
+						<ul>
+							<li>
+								<h5>NAME</h5>
+								<p>Accredited Bond Agencies</p>
+							</li>
+							<li>
+								<h5>STATUS</h5>
+								<p>Active</p>
+							</li>
+							<li>
+								<h5>CONTACT</h5>
+								<p>Alex</p>
+							</li>
+							<li>
+								<h5>PHONE NUMBER <a href="#" class="plasAdd"><img src="~/images/add.svg" alt="" /></a></h5>
+								<p><a>09123456789</a></p>
+								<p><a>09987654321</a></p>
+							</li>
+							<li>
+								<h5>EMAIL <a href="#" class="plasAdd"><img src="~/images/add.svg" alt="" /></a></h5>
+								<p><a>alex.company@gmail.com</a></p>
+							</li>
+						</ul>
+					</div>
+					<div class="col-lg-8 col-md-5">
+						<ul>
+							<li>
+								<h5>ADDRESS</h5>
+								<p>
+									Head Office,<br>
+									100 Main Street<br>
+									Sydney NSW, Australia
+								</p>
+							</li>
+							<li>
+								<h5>OWNER</h5>
+								<p>-</p>
+							</li>
+							<li>
+								<h5>RECRUITERS</h5>
+								<p>
+									Alexander Markle<br>
+									Armand Jackson<br>
+									Jennifer Chen<br>
+									Andre Casaclang
+								</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="backShdow"></div>
+
+@section Scripts {
+	@{
+		<partial name="_ValidationScriptsPartial" />
+	}
+	<script>
+		$(function () {
+			$('td.radio_btn input').change(function () {
+				$(this).closest('tr').toggleClass("highlight", this.checked);
+			});
+		});
+	</script>
+}

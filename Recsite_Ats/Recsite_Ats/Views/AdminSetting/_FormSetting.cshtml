@@ -1,0 +1,222 @@
+﻿@using Recsite_Ats.Domain.ViewModels;
+@model Recsite_Ats.Domain.DataTransferObject.SectionLayoutDTO
+@{
+    var lockIconHtml = "( Default <i class=\"fa-solid fa-lock\"></i>) ";
+    int index = 0; // Initialize index
+    string tableName = Model.Sections.FirstOrDefault()?.TableName;
+    var createCustomField = new CreateCustomFieldViewModel()
+            {
+                TableName = tableName,
+                FieldTypes = Model.FieldTypes
+            };
+}
+
+<div class="dasboard_mid companyDataBody">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
+                <div class="copnyHead">
+                    <h1>@tableName Data Customization</h1>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipiscing, elit enim integer.<br>
+                        Elit gravida quam enim integer elementum turpis.
+                    </p>
+                    <ul class="blBtn">
+                        <li><a href="#" class="blue" id="showNewSectionForm"><i class="fa-sharp fa-solid fa-grid-2-plus"></i> New Section</a></li>
+                    </ul>
+                </div>
+                <!-- New Section Form (Initially Hidden) -->
+                <div class="newSectionFormContainer" style="display: none;">
+                    <form id="newSectionForm" data-url="/FormSetting/CreateCustomSection">
+                        @Html.AntiForgeryToken()
+                        <div class="sectionRow">
+                            <div class="tpHead">
+                                <h4>New Section</h4>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="sectionName">Section Name</label>
+                                        <input id="sectionName" name="SectionName" type="text" class="form-control" placeholder="Jobs Details Section">
+                                        <span class="text-danger" id="sectionNameError"></span> <!-- Validation message -->
+                                    </div>
+                                </div>
+                                <!-- Hidden input for TableName -->
+                                <input type="hidden" id="tableName" name="TableName" value="@tableName" data-field="TableName">
+                                <div class="col-md-6 text-end">
+                                    <button type="reset" class="btn btn-light" id="cancelNewSection">Cancel</button>
+                                    <button type="button" id="saveNewSection" class="btn btn-primary">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- End of New Section Form -->
+                <div class="divScroll">
+                    <form method="post" id="dataForm">
+                        @Html.AntiForgeryToken()
+                        @foreach (var group in Model.Sections)
+                        {
+                            var order = Model.CustomFields.OrderBy(x => x.SortOrder).ToList();
+                            <div class="sectionRow dragged actvs">
+                                <div class="tpContainer">
+                                    <div class="tpHead">
+                                        <h4>
+                                            <i class="fa-solid fa-caret-up"></i> <i class="fa-sharp fa-solid fa-grid-round-2"></i>
+                                            <span class="section-name-display">@group.SectionName</span>
+                                            <input type="text" class="section-name-edit" style="display:none;" value="@group.SectionName" />
+                                            @(!group.IsCustomSection ? Html.Raw(lockIconHtml) : "")
+                                        </h4>
+                                    </div>
+
+                                    @if (group.IsCustomSection)
+                                    {
+                                        <div class="tpActions">
+                                            <ul>
+                                                <li>
+                                                    <a href="#" class="btns edit-btn">
+                                                        <img src="~/images/edit-2.svg" alt="">Edit
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    @Html.AntiForgeryToken()
+                                                    <a href="@Url.Action("EditCustomSection", "AdminSetting", new { sectionId = group.SectionLayoutId, sectionName = "" })"
+                                                       class="btns edit-section ok-btn" style="display:none;">
+                                                        Ok
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="btns cancel-btn" style="display:none;">
+                                                        Cancel
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    @Html.AntiForgeryToken()
+                                                    <a href="@Url.Action("DeleteCustomSection", "AdminSetting", new { sectionId = group.SectionLayoutId })"
+                                                       class="btns delete-section delete-btn">
+                                                        <img src="~/images/eraser.svg" alt=""> Delete
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    }
+                                </div>
+                                <div class="reorderTable table-responsive">
+                                    <table class="sortable-table table" data-section-id="@group.SectionLayoutId">
+                                        <thead>
+                                            <tr>
+                                                <th>Re-order</th>
+                                                <th>Field Name</th>
+                                                <th>Visibility</th>
+                                                <th>Required</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @if (order != null && order.Any())
+                                            {
+                                                int current = 1;
+                                                var customField = order.Where(x => x.SectionLayoutId == group.SectionLayoutId);
+                                                if (customField != null && customField.Any())
+                                                {
+                                                    @foreach (var item in order.Where(x => x.SectionLayoutId == group.SectionLayoutId))
+                                                    {
+                                                        <tr class="item" data-section-id="@group.SectionLayoutId" data-index="@current"
+                                                            data-order-count="@index"
+                                                            data-table-name="@item.TableName"
+                                                            data-account-id="@item.AccountId"
+                                                            data-field-name="@item.FieldName"
+                                                            data-item="@item.Id"
+                                                            data-custom-field-type-name="@item.CustomFieldTypeName"
+                                                            data-custom-field-type-id="@item.CustomFieldTypeId"
+                                                            data-section-layout-id="@group.SectionLayoutId"
+                                                            data-is-nullable="@item.IsNullable"
+                                                            data-is-locked="@item.IsLocked"
+                                                            data-is-required="@item.IsRequired"
+                                                            data-is-visible="@item.IsVisible"
+                                                            data-sort-order="@current"
+                                                            data-is-custom-field="@item.IsCustomField">
+                                                            <td><i class="fa-sharp fa-solid fa-grid-round-2"></i></td>
+                                                            <td>@item.FieldName </td>
+                                                            @if (item.IsCustomField)
+                                                            {
+                                                                <span>Custom Field</span>
+                                                            }
+                                                            <td>
+                                                                <input class="form-switch-input" type="checkbox" role="switch" id="flexSwitchCheckDefault_@index" value="@item.IsVisible" @(item.IsVisible ? "checked" : "") @(item.IsLocked ? "disabled" : "") />
+                                                                <label class="form-switch-label" for="flexSwitchCheckDefault_@index"></label>
+                                                            </td>
+                                                            <td>
+                                                                <input class="form-check-input" type="checkbox" id="cka_@index" value="@item.IsRequired" @(item.IsRequired ? "checked" : "") @(item.IsLocked ? "disabled" : "") />
+                                                                <label class="form-check-label" for="cka_@index"></label>
+                                                            </td>
+                                                        </tr>
+                                                        current++;
+                                                        index++;
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    <tr class="no-fields">
+                                                        <td colspan="10">No fields available</td>
+                                                    </tr>
+                                                }
+
+                                            }
+                                            else
+                                            {
+                                                <tr class="no-fields">
+                                                    <td colspan="10">No fields available</td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        }
+                        <div class="sectionRow btmactvs">
+                            <div class="row justify-content-end">
+                                <div class="col-md-6 text-end">
+                                    <button type="reset" class="btn btn-light">Cancel</button>
+                                    <button type="button" id="saveOrderButton" class="btn btn-primary">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <div class="customflDrt">
+                    <div class="customflDrtHead">
+                        <h2>Add Custom Fields To Company Records</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipiscing, elit gravida quam enim integer.<br>
+                            Elit gravida quam enim integer elementum turpis.
+                        </p>
+                        <ul class="blBtn">
+                            <li><a href="#url" class="blue" id="addnwFld"><i><img src="~/images/additem.svg" alt=""></i> New Custom Field</a></li>
+                        </ul>
+                    </div>
+                    <div class="cusTmfldRow">
+                        <div class="tpHead">
+                            <h4>Company Custom Fields</h4>
+                        </div>
+                        <div class="cusTmfld">
+                            <div class="cusTmfldPara">
+                                <p>No fields yet. Start creating company custom fields. <a href="#url" id="addcutom">Add New Custom Field</a></p>
+                            </div>
+                            @await Html.PartialAsync("_CustomFieldList", Model.CustomFieldLists)
+                            <div class="addnewFild">
+                                <div class="modalHead">
+                                    <button type="button" class="btn-close"><img src="~/images/close.svg" alt=""></button>
+                                    <h4>Add Custom Field</h4>
+                                </div>
+                                @await Html.PartialAsync("_CreateCustomField", createCustomField)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

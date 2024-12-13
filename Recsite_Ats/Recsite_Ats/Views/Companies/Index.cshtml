@@ -1,0 +1,159 @@
+﻿@using Recsite_Ats.Domain.DataTransferObject
+@using ErrorViewModel = Recsite_Ats.Domain.ViewModels.ErrorViewModel;
+@model IEnumerable<Recsite_Ats.Domain.Entites.Company>
+
+@{
+    ViewData["Title"] = "Companies List";
+    SectionLayoutDTO SectionlayoutDTO = ViewBag.SectionlayoutDTO as SectionLayoutDTO;
+    string selectced = string.Empty;
+    var errorMessage = ViewBag.errorMessage as List<ErrorViewModel>;
+}
+<link rel="stylesheet" href="~/css/custom/model.css" />
+<div class="dasboard_mid companyDataBody">
+    <h2>Companies </h2>
+    <div class="">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createCompanyModal">
+            Create Company
+        </button>
+
+        <div class="modal fade" id="createCompanyModal" tabindex="-1" aria-labelledby="createCompanyModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <form asp-controller="Companies" asp-action="Create" method="post" class="form-horizontal background" enctype="multipart/form-data">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="createCompanyModalLabel">Create Company</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+
+                            @for (int i = 0; i < SectionlayoutDTO.Sections.Count; i++)
+                            {
+                                <h6 class="section-header">@SectionlayoutDTO.Sections[i].SectionName</h6>
+                                <input type="hidden" name="Sections[@i].SectionName" value="@SectionlayoutDTO.Sections[i].SectionName" />
+                                <input type="hidden" name="Sections[@i].SectionLayoutId" value="@SectionlayoutDTO.Sections[i].SectionLayoutId" />
+                                <input type="hidden" name="Sections[@i].TableName" value="@SectionlayoutDTO.Sections[i].TableName" />
+                                <input type="hidden" name="Sections[@i].Sort" value="@SectionlayoutDTO.Sections[i].Sort" />
+                                <input type="hidden" name="Sections[@i].Visible" value="@SectionlayoutDTO.Sections[i].Visible.ToString().ToLower()" />
+                                <input type="hidden" name="Sections[@i].IsCustomSection" value="@SectionlayoutDTO.Sections[i].IsCustomSection.ToString().ToLower()" />
+
+                                @for (int j = 0; j < SectionlayoutDTO.CustomFields.Count; j++)
+                                {
+                                    if (SectionlayoutDTO.CustomFields[j].SectionLayoutId == SectionlayoutDTO.Sections[i].SectionLayoutId && SectionlayoutDTO.CustomFields[j].IsVisible == true)
+                                    {
+                                        <div class="form-group">
+                                            <label>
+                                                @SectionlayoutDTO.CustomFields[j].FieldName: @if (SectionlayoutDTO.CustomFields[j].IsRequired)
+                                                {
+                                                    <span class="text-danger">*</span>
+                                                }
+                                            </label>
+                                            @if (SectionlayoutDTO.CustomFields[j].CustomFieldTypeName == "Image")
+                                            {
+                                                <input class="form-control" type="file"
+                                                       name="CustomFields[@j].FieldValueFile"
+                                                       placeholder="Enter @SectionlayoutDTO.CustomFields[j].FieldName" />
+                                            }
+                                            else if (SectionlayoutDTO.CustomFields[j].CustomFieldTypeName == "MultiSelect")
+                                            {
+                                                <select id="multiSelectInModal" name="CustomFields[@j].SelectedOptions" class="select2-checkbox" multiple="multiple" style="width: 100%;">
+                                                    @if (SectionlayoutDTO.CustomFields[j].AvailableOptions != null)
+                                                    {
+                                                        foreach (var option in SectionlayoutDTO.CustomFields[j].AvailableOptions)
+                                                        {
+                                                            <option value="@option.Value">
+                                                                @option.Text
+                                                            </option>
+                                                        }
+                                                    }
+
+                                                </select>
+                                            }
+                                            else
+                                            {
+                                                <input class="form-control"
+                                                       name="CustomFields[@j].FieldValue"
+                                                       value="@SectionlayoutDTO.CustomFields[j].FieldValue"
+                                                       placeholder="Enter @SectionlayoutDTO.CustomFields[j].FieldName" />
+                                            }
+                                            @if (errorMessage != null)
+                                            {
+                                                foreach (var error in errorMessage)
+                                                {
+                                                    if (error.Key == $"CustomFields[{j}].FieldValue" || error.Key == $"CustomFields[{j}].FieldValueFile")
+                                                    {
+                                                        <span class="text-danger form-control">@error.Message</span>
+                                                    }
+                                                }
+
+                                            }
+                                            <input type="hidden" name="CustomFields[@j].FieldName" value="@SectionlayoutDTO.CustomFields[j].FieldName" />
+                                            <input type="hidden" name="CustomFields[@j].SectionLayoutId" value="@SectionlayoutDTO.CustomFields[j].SectionLayoutId" />
+                                            <input type="hidden" name="CustomFields[@j].CustomFieldTypeId" value="@SectionlayoutDTO.CustomFields[j].CustomFieldTypeId" />
+                                            <input type="hidden" name="CustomFields[@j].CustomFieldTypeName" value="@SectionlayoutDTO.CustomFields[j].CustomFieldTypeName" />
+                                            <input type="hidden" name="CustomFields[@j].IsNullable" value="@SectionlayoutDTO.CustomFields[j].IsNullable.ToString().ToLower()" />
+                                            <input type="hidden" name="CustomFields[@j].IsLocked" value="@SectionlayoutDTO.CustomFields[j].IsLocked.ToString().ToLower()" />
+                                            <input type="hidden" name="CustomFields[@j].IsRequired" value="@SectionlayoutDTO.CustomFields[j].IsRequired.ToString().ToLower()" />
+                                            <input type="hidden" name="CustomFields[@j].IsVisible" value="@SectionlayoutDTO.CustomFields[j].IsVisible.ToString().ToLower()" />
+                                            <input type="hidden" name="CustomFields[@j].SortOrder" value="@SectionlayoutDTO.CustomFields[j].SortOrder" />
+                                            <input type="hidden" name="CustomFields[@j].IsCustomField" value="@SectionlayoutDTO.CustomFields[j].IsCustomField.ToString().ToLower()" />
+                                        </div>
+                                    }
+                                }
+                                <hr />
+                            }
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Company Name</th>
+                    <th scope="col">Legal Name</th>
+                    <th scope="col">Website</th>
+                    <th scope="col">Created Date</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var company in Model)
+                {
+                    <tr>
+                        <td>@company.Id</td>
+                        <td>@company.CompanyName</td>
+                        <td>@company.LegalName</td>
+                        <td>@company.Website</td>
+                        <td>@company.CreatedDate.ToString("d MMM yyyy")</td>
+                        <td>
+                            <a href="@Url.Action("Details", "Companies", new { id = company.Id })" class="btn btn-info btn-sm">View</a>
+                            <a href="@Url.Action("Edit", "Companies", new { id = company.Id })" class="btn btn-warning btn-sm">Edit</a>
+                            <form action="@Url.Action("Delete", "Companies", new { id = company.Id })" method="post" style="display:inline-block;">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="_method" value="DELETE" />
+                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="~/js/custom/custom-select2.js"></script>
+}

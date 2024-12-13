@@ -1,0 +1,118 @@
+﻿@model Recsite_Ats.Domain.DataTransferObject.SectionLayoutDTO
+
+@{
+    ViewData["Title"] = "Edit Company Data";
+    var companyId = ViewData["CompanyId"];
+    string selected = string.Empty;
+    var returnUrl = Url.Action("Details", "Companies", new { id = companyId });
+}
+<link rel="stylesheet" href="~/css/custom/model.css" />
+<form asp-controller="Companies" asp-action="Edit" method="post" enctype="multipart/form-data" class="form-horizontal dashboard_mid">
+    <div class="modal-header">
+        <h5 class="modal-title" id="createCompanyModal">Edit Company Data</h5>
+    </div>
+    <div class="modal-body">
+        @for (int i = 0; i < Model.Sections.Count; i++)
+        {
+            <h6 class="section-header">@Model.Sections[i].SectionName</h6>
+            @for (int j = 0; j < Model.CustomFields.Count; j++)
+            {
+                if (Model.CustomFields[j].SectionLayoutId == Model.Sections[i].SectionLayoutId)
+                {
+                    <div class="form-group">
+                        <label>@Model.CustomFields[j].FieldName:</label>
+                        @if (Model.CustomFields[j].CustomFieldTypeName == "Image")
+                        {
+                            <input class="form-control" type="file" name="CustomFields[@j].FieldValueFile" />
+                        }
+                        else if (Model.CustomFields[j].CustomFieldTypeName == "MultiSelect")
+                        {
+                            @*  <select id="multiSelect_@j" name="CustomFields[@j].SelectedOptions" class="select2-checkbox" multiple="multiple" style="width: 100%;">
+            @if (Model.CustomFields[j].AvailableOptions != null)
+            {
+            foreach (var option in Model.CustomFields[j].AvailableOptions)
+            {
+            <option value="@option.Value">@option.Text</option>
+            }
+            }
+            </select> *@
+
+                            <select id="example" class="form-control" multiple="multiple" style="width: 100%;">
+                                @foreach (var option in Model.CustomFields[j].AvailableOptions)
+                                {
+                                    <option value="@option.Value">@option.Text</option>
+                                }
+                            </select>
+
+                        }
+                        else
+                        {
+                            <input class="form-control" name="CustomFields[@j].FieldValue" value="@Model.CustomFields[j].FieldValue" />
+                        }
+                    </div>
+                }
+            }
+            <hr />
+        }
+    </div>
+    <div class="modal-footer">
+        <a href="@Url.Action("Index", "Companies")" class="btn btn-secondary">Cancel</a>
+        <button type="submit" class="btn btn-primary">Edit</button>
+    </div>
+</form>
+
+<div class="dasboard_mid">
+    <h2>
+        Edit Company Data
+    </h2>
+    <form asp-controller="Companies" asp-action="Edit" method="post" enctype="multipart/form-data" class="form-horizontal">
+        @for (int i = 0; i < Model.Sections.Count; i++)
+        {
+            <h6 class="section-header">@Model.Sections[i].SectionName</h6>
+            @for (int j = 0; j < Model.CustomFields.Count; j++)
+            {
+                <div class="form-group mb-3">
+                    <label for="@Model.CustomFields[j].FieldName">@Model.CustomFields[j].FieldName:</label>
+                </div>
+            }
+        }
+    </form>
+</div>
+
+
+
+
+
+@*
+<script src="~/js/custom/custom-select2-edit.js"></script> *@
+
+<script>
+    $(document).ready(function () {
+        function formatOption(option) {
+            if (!option.id) {
+                return option.text;
+            }
+            var checkbox = $('<span><input type="checkbox"/> ' + option.text + '</span>');
+            return checkbox;
+        }
+
+        $('#example').select2({
+            placeholder: "Select a fruit",
+            allowClear: true,
+            closeOnSelect: false, // Keeps dropdown open
+            templateResult: formatOption, // Custom template for options
+            templateSelection: formatOption // Custom template for selected items
+        });
+
+        // Event listener to update checkbox state
+        $('#example').on('select2:select', function (e) {
+            $(e.params.data.element).prop('selected', true).trigger('change');
+        });
+
+        $('#example').on('select2:unselect', function (e) {
+            $(e.params.data.element).prop('selected', false).trigger('change');
+        });
+    });
+</script>
+
+

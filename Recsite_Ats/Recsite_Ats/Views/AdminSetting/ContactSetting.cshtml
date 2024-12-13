@@ -1,0 +1,63 @@
+﻿@using Recsite_Ats.Domain.ViewModels;
+@using static Recsite_Ats.Domain.Extend.AdminSetting;
+@model Recsite_Ats.Domain.DataTransferObject.SectionLayoutDTO
+
+@{
+    ViewData["Title"] = "Contact Setting";
+    TempData["RedirectUrl"] = Url.Action("ContactSetting", "AdminSetting");
+    TempData["TableName"] = Setting.Contacts;
+}
+<link rel="stylesheet" href="~/css/custom/edit-button-settting.css" />
+<!-- Toast container -->
+<div aria-live="polite" aria-atomic="true" class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+    <div id="toast-container"></div>
+</div>
+<div class="filter_main">
+    <div class="container-fluid">
+        <div class="bradcampSec">
+            <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#"><i class="fa-regular fa-gear"></i></a></li>
+                    <li class="breadcrumb-item"><a href="#">Add Custom Fields</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Contact Data Customization</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+@await Html.PartialAsync("_FormSetting", Model)
+@section Scripts {
+    <script src="~/js/sortable.es5.min.js"></script>
+    <script src="~/js/custom/create-new-section.min.js"></script>
+    <script src="~/js/custom/edit-section-name.min.js"></script>
+    <script>
+        $(function () {
+            $('td.radio_btn input').change(function () {
+                $(this).closest('tr').toggleClass("highlight", this.checked);
+            });
+        });
+
+        $("#addnwFld").click(function () {
+            $(".addnewFild").toggleClass("show");
+        });
+        $(".btn-close").click(function () {
+            $(".addnewFild").removeClass("show");
+        });
+        $("#addcutom").click(function () {
+            $(".cusTmfldParaOpen").toggleClass("show");
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $(".sectionRow .tpHead").click(function (event) {
+                event.preventDefault();
+                var parentRow = $(this).closest('.sectionRow'); // Get the closest parent with class 'sectionRow'
+                if (parentRow.hasClass('active')) {
+                    parentRow.removeClass("active");
+                } else {
+                    parentRow.toggleClass("active");
+                }
+            });
+        });
+    </script>
+}

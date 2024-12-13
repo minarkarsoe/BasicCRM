@@ -1,0 +1,90 @@
+﻿@using ErrorViewModel = Recsite_Ats.Domain.ViewModels.ErrorViewModel;
+@model Recsite_Ats.Domain.DataTransferObject.SectionLayoutDTO;
+@{
+    string selectced = string.Empty;
+    var errorMessage = ViewBag.errorMessage as List<ErrorViewModel>;
+}
+
+<div class="dasboard_mid companyDataBody">
+    <form asp-controller="Companies" asp-action="CreateCompany" method="post" class="form-horizontal background" enctype="multipart/form-data">
+
+        <h5 class="modal-title" id="createCompanyModalLabel">Create Company</h5>
+
+        @for (int i = 0; i < Model.Sections.Count; i++)
+        {
+            <h6 class="section-header">@Model.Sections[i].SectionName</h6>
+            <input type="hidden" name="Sections[@i].SectionName" value="@Model.Sections[i].SectionName" />
+            <input type="hidden" name="Sections[@i].SectionLayoutId" value="@Model.Sections[i].SectionLayoutId" />
+            <input type="hidden" name="Sections[@i].TableName" value="@Model.Sections[i].TableName" />
+            <input type="hidden" name="Sections[@i].Sort" value="@Model.Sections[i].Sort" />
+            <input type="hidden" name="Sections[@i].Visible" value="@Model.Sections[i].Visible.ToString().ToLower()" />
+            <input type="hidden" name="Sections[@i].IsCustomSection" value="@Model.Sections[i].IsCustomSection.ToString().ToLower()" />
+
+            @for (int j = 0; j < Model.CustomFields.Count; j++)
+            {
+                if (Model.CustomFields[j].SectionLayoutId == Model.Sections[i].SectionLayoutId && Model.CustomFields[j].IsVisible == true)
+                {
+                    <div class="form-group">
+                        <label>@Model.CustomFields[j].FieldName: @if(Model.CustomFields[j].IsRequired){ <span class="text-danger">*</span> } </label>
+                        @if (Model.CustomFields[j].CustomFieldTypeName == "Image")
+                        {
+                            <input class="form-control" type="file"
+                                   name="CustomFields[@j].FieldValueFile"
+                                   placeholder="Enter @Model.CustomFields[j].FieldName" />
+                        }
+                        else if (Model.CustomFields[j].CustomFieldTypeName == "MultiSelect")
+                        {
+                            <select id="multiSelectBox" name="CustomFields[@j].SelectedOptions" class="form-control" multiple>
+                                @if (Model.CustomFields[j].AvailableOptions != null)
+                                {
+                                    foreach (var option in Model.CustomFields[j].AvailableOptions)
+                                    {
+                                        selectced = Model.CustomFields[j].SelectedOptions.Contains(option.Value) ? "selected" : "";
+                                        <option value="@option.Value" selected>
+                                            @option.Text
+                                        </option>
+                                    }
+                                }
+
+                            </select>
+                        }
+                        else
+                        {
+                            <input class="form-control"
+                                   name="CustomFields[@j].FieldValue"
+                                   value="@Model.CustomFields[j].FieldValue"
+                                   placeholder="Enter @Model.CustomFields[j].FieldName" />
+                        }
+                        @if (errorMessage != null)
+                        {
+                            foreach (var error in errorMessage)
+                            {
+                                if (error.Key == $"CustomFields[{j}].FieldValue" || error.Key == $"CustomFields[{j}].FieldValueFile")
+                                {
+                                    <span class="text-danger">@error.Message</span>
+                                }
+                            }
+
+                        }
+                        <input type="hidden" name="CustomFields[@j].FieldName" value="@Model.CustomFields[j].FieldName" />
+                        <input type="hidden" name="CustomFields[@j].SectionLayoutId" value="@Model.CustomFields[j].SectionLayoutId" />
+                        <input type="hidden" name="CustomFields[@j].CustomFieldTypeId" value="@Model.CustomFields[j].CustomFieldTypeId" />
+                        <input type="hidden" name="CustomFields[@j].CustomFieldTypeName" value="@Model.CustomFields[j].CustomFieldTypeName" />
+                        <input type="hidden" name="CustomFields[@j].IsNullable" value="@Model.CustomFields[j].IsNullable.ToString().ToLower()" />
+                        <input type="hidden" name="CustomFields[@j].IsLocked" value="@Model.CustomFields[j].IsLocked.ToString().ToLower()" />
+                        <input type="hidden" name="CustomFields[@j].IsRequired" value="@Model.CustomFields[j].IsRequired.ToString().ToLower()" />
+                        <input type="hidden" name="CustomFields[@j].IsVisible" value="@Model.CustomFields[j].IsVisible.ToString().ToLower()" />
+                        <input type="hidden" name="CustomFields[@j].SortOrder" value="@Model.CustomFields[j].SortOrder" />
+                        <input type="hidden" name="CustomFields[@j].IsCustomField" value="@Model.CustomFields[j].IsCustomField.ToString().ToLower()" />
+                    </div>
+                }
+            }
+            <hr />
+        }
+
+        <a href="@Url.Action("Index")" class="btn btn-secondary">Close</a>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+
+    </form>
+
+</div>

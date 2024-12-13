@@ -1,0 +1,38 @@
+﻿
+.tpContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+    .tpContainer.active .reorderTable {
+        display: block;
+    }
+
+    .tpContainer.active .fa-caret-up {
+        transform: rotate(180deg);
+    }
+
+
+.tpHead {
+    flex-grow: 1;
+}
+
+.tpActions {
+    display: flex;
+    align-items: center;
+}
+
+    .tpActions ul {
+        margin: 0px;
+        padding: 0px;
+        position: absolute;
+        top: -0.3rem;
+        right: 1.5rem;
+    }
+
+    .tpActions li {
+        display: inline-block;
+        margin: 0.9rem 0rem;
+        padding: 0px;
+    }

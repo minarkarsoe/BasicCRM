@@ -1,0 +1,25 @@
+﻿.modal-dialog-scrollable .modal-content{
+    overflow : auto !important;
+}
+
+/* Override font size for all dropdown options */
+/* Custom font size for all dropdown options */
+.select2-container--default .select2-results__option {
+    font-size: 0.8rem !important; /* Adjust to your desired size */
+}
+/* Optional: Placeholder font size */
+.select2-container--default .select2-search--inline .select2-search__field {
+    font-size: 0.8rem !important; /* Adjust to your desired size */
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice__display {
+    font-size: 0.8rem !important;
+}
+
+ul li:last-child, ol li:last-child {
+    margin-bottom : 0.56rem !important;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+    margin-top : 1rem !important;
+}

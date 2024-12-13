@@ -1,0 +1,158 @@
+﻿@using Recsite_Ats.Domain.ViewModels
+@model RegisterVM
+@{
+    Layout = "_loginLayout";
+}
+
+
+<div class="registerBody">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-7 regsLft">
+                <div class="regsLftBlu">
+                    <a href="#" class="regsLogo"><img src="~/images/logo1.svg" alt="" /></a>
+                    <img src="~/images/bglogo.svg" alt="" class="bglogo" />
+                    <div class="regsLftBluIn">
+                        <div class="dshPic"><img src="~/images/dashbordpic.png" alt="" /></div>
+                        <div class="dartTxt">
+                            <h6>What our clients say</h6>
+                            <h4>About the Security</h4>
+                            <div class="owl-carousel abtcaro">
+                                <div class="item">
+                                    <img src="~/images/star.png" alt="" />
+                                    <p>
+                                        Lorem ipsum dolor sit amet consectetur adipiscing, elit enim integer.
+                                        Elit gravida quam enim integer elementum turpis. Lorem ipsum
+                                        dolor sit amet consectetur adipiscing, elit enim integer. Elit gravida
+                                        quam enim integer elementum turpis.
+                                    </p>
+                                </div>
+                                <div class="item">
+                                    <img src="~/images/star.png" alt="" />
+                                    <p>
+                                        Lorem ipsum dolor sit amet consectetur adipiscing, elit enim integer.
+                                        Elit gravida quam enim integer elementum turpis. Lorem ipsum
+                                        dolor sit amet consectetur adipiscing, elit enim integer. Elit gravida
+                                        quam enim integer elementum turpis.
+                                    </p>
+                                </div>
+                                <div class="item">
+                                    <img src="~/images/star.png" alt="" />
+                                    <p>
+                                        Lorem ipsum dolor sit amet consectetur adipiscing, elit enim integer.
+                                        Elit gravida quam enim integer elementum turpis. Lorem ipsum
+                                        dolor sit amet consectetur adipiscing, elit enim integer. Elit gravida
+                                        quam enim integer elementum turpis.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5 regsRt">
+                <div class="regsRtInn">
+                    <h1>Excited to get started? Sign up now.</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipiscing</p>
+                    <form method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div><!--Other option is to show 'All'-->
+                        <input asp-for="RedirectUrl" hidden />
+                        <div class="form-group">
+                            <label asp-for="Email"></label>
+                            <div class="form-groupIn">
+                                <input asp-for="Email" type="email" class="form-control" placeholder="Email" aria-required="true" />
+                            </div>
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="FirstName"></label>
+                            <div class="form-groupIn"><input asp-for="FirstName" type="text" placeholder="First Name" class="form-control" /></div>
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="LastName"></label>
+                            <div class="form-groupIn"><input asp-for="LastName" type="text" placeholder="Last Name" class="form-control" /></div>
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="CompanyName"></label>
+                            <div class="form-groupIn"><input asp-for="CompanyName" type="text" placeholder="Last Name" class="form-control" /></div>
+                            <span asp-validation-for="CompanyName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Password"></label>
+
+                            <div class="form-groupIn">
+                                <input asp-for="Password" id="password-field" type="password" name="password" placeholder="Password" class="form-control" />
+                                <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                            </div>
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                            <p>Password must have 6 characters at least.</p>
+                        </div>
+                        <div class="form-check form-group">
+                            <input class="form-check-input-brd" type="checkbox" value="" id="flexCheckChecked" checked>
+                            <label class="form-check-label-brd" for="flexCheckChecked">
+                                I agree to Recsite ATS’s <a href="#">Terms of Service</a> and <a asp-action="Privacy">Privacy Policy</a>.
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Create Your Account</button>
+                        </div>
+                        <div class="form-group alredytxt">
+                            <p>Already have an account? <a asp-action="Login" asp-controller="Account">Log In</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+    <script>
+        $(function () {
+            $('td.radio_btn input').change(function () {
+                $(this).closest('tr').toggleClass("highlight", this.checked);
+            });
+        });
+
+        $("#addnwFld").click(function () {
+            $(".addnewFild").toggleClass("show");
+        });
+        $(".btn-close").click(function () {
+            $(".addnewFild").removeClass("show");
+        });
+        $("#addcutom").click(function () {
+            $(".cusTmfldParaOpen").toggleClass("show");
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $(".sectionRow .tpHead").click(function (event) {
+                event.preventDefault();
+                if ($(this).parents('.active').length) {
+                    $(this).parent().removeClass("active");
+                }
+                else {
+                    $(this).parent().toggleClass("active");
+                    $(this).parent().siblings().removeClass("active");
+                }
+            });
+        });
+    </script>
+    <script>
+        $(".toggle-password").click(function () {
+            $(this).toggleClass("fa-eye fa-eye-slash");
+            var input = $($(this).attr("toggle"));
+            if (input.attr("type") == "password") {
+                input.attr("type", "text");
+            } else {
+                input.attr("type", "password");
+            }
+        });
+    </script>
+
+}
